@@ -1,0 +1,29 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base layout */
+html,
+body {
+  height: 100%;
+  font-family: sans-serif;
+}
+
+/* Improve text rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+:root {
+  --defaultText: "san-serif";
+}
+
+main {
+  flex: 1;
+  /* pushes footer to the bottom when content is short */
+}
