@@ -1,5 +1,5 @@
     import { useEffect, useState } from "react"
-    import '../styling/nav.css';
+    import '../styling/nav.scss';
     import BrandName from '../hooks/useNavBrandName.tsx';
 
     export default function Navigation() {
