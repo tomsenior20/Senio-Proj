@@ -6,6 +6,11 @@
   box-sizing: border-box;
 }
 
+#__next,
+#root {
+  height: 100%;
+}
+
 /* Base layout */
 html,
 body {

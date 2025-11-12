@@ -1,0 +1,119 @@
+@use './default' as *;
+.adminContainer {
+    @include flex-row;
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    padding: 3em;
+}
+
+.loginContainer, .registerContainer{
+    width: 50%;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.registerContainer{
+    height: 90%;
+    width: 50%;
+    padding: 1em;
+    @include flex-column;
+}
+
+.loginForm{
+    @include flex-column;
+    width:70%;
+    height:90%;
+    background-color: #F0F8FF;
+    padding: 1em;
+}
+
+.mainFormContainer{
+    flex: 1
+}
+
+.signInEmailContainer{
+    @include flex-column;
+}
+
+.signInPasswordContainer{
+    @include flex-column;
+}
+
+.SignInformLabel{
+    font: 400 16px var(--defaultText);
+    line-height: 20px;
+    margin: 3px 0;
+    padding: 5px 0;
+}
+
+.SignInformInput{
+    margin: 3px 0;
+    padding: 5px 0;
+}
+
+.showPasswordContainer{
+    width:100%;
+    @include flex-row;
+    justify-content: end;
+    align-items: center;
+    margin: 5px 0;
+    padding: 5px 0;
+}
+
+.showPasswordText{
+    font: 400 16px var(--defaultText);
+    line-height:18px;
+    color: black;
+}
+
+.toggleInput{
+    margin: 5px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.toggleText{
+    font: 400 16px var(--defaultText);
+    line-height: 18px;
+    color: black;
+    margin: 0 10px;
+}
+
+.signInButtonContainer{
+    width:100%;
+}
+.signInButton{
+    cursor: pointer;
+    width: 100%;
+    padding: 12px 24px;
+    color: #fff;
+    margin: 15px 0;
+    background-color: blue;
+    border: 1px solid transparent;
+    border-radius: 4px ;
+    -webkit-border-radius: 4px ;
+    -moz-border-radius: 4px ;
+    -ms-border-radius: 4px ;
+    -o-border-radius: 4px ;
+}
+
+.forgotPassword{
+    width:100%;
+    padding: 0.5em;
+    margin: 10px 0;
+    @include flex-row;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+}
+
+.forgotPasswordText{
+    font: 400 16px var(--defaultText);
+    line-height: 20px;
+    width: 100%;
+    padding: 15px 5px;
+    text-align: end;
+}

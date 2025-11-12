@@ -2,6 +2,14 @@ import React, { useEffect, useState } from "react"
 import "../styling/contact.scss" 
 import Footer from '../components/footer';
 
+    interface FormData {
+        name: string;
+        number: string;
+        email: string;
+        product: string;
+        message: string;
+    }
+
     function ContactHeader(){
         return(
             <header className="contactHeaderContainer">
@@ -42,7 +50,7 @@ import Footer from '../components/footer';
 
     function GenerateContactForm(){
 
-        const [formData, setFormData] = useState({
+        const [formData, setFormData] = useState<FormData>({
             name : "",
             number: "",
             email: "",
@@ -68,7 +76,7 @@ import Footer from '../components/footer';
             .then(res => res.json())
             .then(data => {
                 if(data){
-                  console.log("Form Data Submitted", new Date().toUTCString());
+                console.log("Form Data Submitted", new Date().toUTCString());
                 }
             })
             .catch(err => console.error(err));

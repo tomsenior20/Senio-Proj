@@ -23,7 +23,8 @@
             const currentPath : string  = location.pathname;
             let Links = [
                 {name: "Home", path:  "/", },
-                {name: "Contact", path:  "/contact", }
+                {name: "Contact", path:  "/contact", },
+                {name: "Admin", path:  "/Admin", },
             ];
 
             return(
