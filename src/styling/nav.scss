@@ -1,10 +1,11 @@
 @use './default' as *;
 
 nav {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 1);
     backdrop-filter: blur(6px);
     @include flex-row;
     padding: 0.5em 3em;
+    height:80px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
@@ -45,10 +46,7 @@ nav {
 }
 
 .navigationLinkList a:hover {
-    text-decoration: underline;
-    text-decoration-color: black;
-    text-underline-position: under;
-    -moz-text-decoration-color: black;
+    color: #00009E;
 }
 
 .mobileMenuButton {
@@ -77,8 +75,8 @@ nav {
 
 .mobileMenu {
     padding: 1em 0.5em;
-    background-color: rgba(240, 240, 240, 0.6);
-    border: 1px solid rgba(220, 220, 220, 0.8);
+    background-color: rgba(249, 249, 249, 0.6);
+    border: 1px solid rgba(232, 232, 232, 0.8);
     animation: 1s fadein ease-in-out;
     -webkit-animation: 1s fadein ease-in-out;
 }
@@ -93,11 +91,9 @@ nav {
     padding: 5px;
 }
 
-.mobileMenu a:hover {
-    text-decoration: underline;
-    text-decoration-color: black;
-    text-underline-position: under;
-    -moz-text-decoration-color: black;
+.mobileMenu a:hover, .mobileMenu a:active {
+    color: #00009E;
+    background-color: #fff;
 }
 
 @keyframes fadein {
@@ -115,5 +111,15 @@ nav {
 @media  screen and (max-width:750px) {
     nav{
         padding: 0.5em 1em;
+    }
+    .mobileMenu{
+        padding: 0.5em;
+    }
+    .mobileMenu li:hover, .mobileMenu li:active{
+        background-color: rgba(249, 249, 249, 0.6);
+    }
+    .mobileMenu a {
+        display: block;
+        width: 100%;
     }
 }

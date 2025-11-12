@@ -1,7 +1,7 @@
 @use './default' as *;
 
 .contactHeaderContainer {
-    min-height: 400px;
+    min-height: 500px;
     @include flex-column;
     justify-content: center;
     align-items: center;
@@ -9,18 +9,22 @@
 
 .contactHeader {
     font: 500 80px var(--defaultText);
-    line-height: 2;
-    color: #000;
-    letter-spacing: 0.012em;
+    line-height: 88px;
+    color: $headerDefaultColor;
+    letter-spacing: 0.013em;
 }
 
 .formContainer {
-    width: 100%;
     padding: 1em;
     @include flex-column;
     justify-content: center;
     align-items: center;
     margin: 3em;
+    border-radius: 8px ;
+    -webkit-border-radius: 8px ;
+    -moz-border-radius: 8px ;
+    -ms-border-radius: 8px ;
+    -o-border-radius: 8px ;
 }
 
 .contactFormContainer {
@@ -29,8 +33,13 @@
     padding: 1em;
     margin: 2em;
     min-height: 500px;
-    background: linear-gradient(to bottom, rgba(209, 209, 209, 0.3));
-    box-shadow: 1px 2px 2px rgb(200, 200, 200);
+    background: #eeeeee;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 
 .inputContainer {
@@ -52,10 +61,11 @@
 }
 
 .formLabel {
-    font: 400 20px var(--defaultText);
-    line-height: 1.5;
+    font: 600 22px var(--defaultText);
+    line-height: 25px;
     color: #000;
     margin: 5px 0;
+    padding: 8px;
 }
 
 .formInput {

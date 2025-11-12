@@ -1,4 +1,4 @@
-import "../styling/home.css";
+import "../styling/home.scss";
 import BrandNameContainer from '../hooks/getBrandName.tsx';
 import Footer from "../components/footer.tsx";
 
