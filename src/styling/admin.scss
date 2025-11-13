@@ -2,30 +2,31 @@
 .adminContainer {
     @include flex-row;
     width: 100%;
-    min-height: 100%;
+    height: 100%;
     position: relative;
-    padding: 3em;
 }
 
-.loginContainer, .registerContainer{
+.loginContainer{
     width: 50%;
-    padding: 1em;
+    padding:2cqi;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgba(226, 226, 226, 0.3);
 }
+
 .registerContainer{
-    height: 90%;
     width: 50%;
-    padding: 1em;
+    padding: 2em;
     @include flex-column;
+    background: linear-gradient(to bottom, rgba(5, 24, 93, 0.9), rgb(16, 5, 73));
 }
 
 .loginForm{
     @include flex-column;
-    width:70%;
-    height:90%;
-    background-color: #F0F8FF;
+    width:60%;
+    height:70%;
+    background: #fff;
     padding: 1em;
 }
 
@@ -51,6 +52,7 @@
 .SignInformInput{
     margin: 3px 0;
     padding: 5px 0;
+    font-size: 17px;
 }
 
 .showPasswordContainer{
@@ -91,13 +93,21 @@
     padding: 12px 24px;
     color: #fff;
     margin: 15px 0;
-    background-color: blue;
+    font: 400 16px var(--defaultText);
+    line-height: 18px;
+    background-color: #5C5CFF;
     border: 1px solid transparent;
     border-radius: 4px ;
     -webkit-border-radius: 4px ;
     -moz-border-radius: 4px ;
     -ms-border-radius: 4px ;
     -o-border-radius: 4px ;
+}
+
+.signInButton:hover, .signInButton:active{
+    background-color: rgba(210, 230, 242, 0.9);
+    border: 1px solid rgb(159, 159, 159);
+    color: #000;
 }
 
 .forgotPassword{
@@ -116,4 +126,89 @@
     width: 100%;
     padding: 15px 5px;
     text-align: end;
+    color: #000;
+    text-decoration: none;
+}
+
+.forgotPasswordText:active, .forgotPasswordText:hover{
+    color: blue;
+}  
+
+.headerRegisterContainer{
+    width: 100%;
+    padding: 1em;
+}
+
+.mainHeaderRegister{
+    font: 500 50px var(--defaultText);
+    line-height: 55px;
+    color: #fff;
+    padding: 5px;
+}
+
+.subHeaderRegister{
+    font: 400 35x var(--defaultText);
+    line-height: 40px;
+    color: #fff;
+    padding:5px;
+}
+
+.registerButtonContainer{
+    width:100%;
+    padding: 1em;
+}
+
+.registrationButton{
+    width: 100%;
+    padding: 1em;
+    font: 400 16px var(--defaultText);
+    line-height: 18px;
+    cursor: pointer;
+}
+
+.registrationButton:hover, .registrationButton:active{
+    background-color: rgba(210, 230, 242, 0.9);
+    border: 1px solid white;
+}
+
+.techImageContainer{
+    width: 100%;
+    flex: 1;
+    height: 300px;
+    overflow: hidden;
+    padding: 1em;
+}
+
+.techimage{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+@media screen and (max-width: 850px){
+    .adminContainer{
+        flex-direction: column;
+        width: 100%;
+    }
+    .loginContainer{
+        min-height:600px;
+        width: 100%;
+        padding: 1em 0.5em;
+    }
+
+    .registerContainer{
+        width: 100%;
+        padding: 1em 0.5em;
+    }
+
+    .loginForm{
+        width: 90%;
+        height:90%;
+    }
+    .forgotPassword{
+        height: 100px;
+        margin: 1px;
+        padding: 1px;
+    }
 }

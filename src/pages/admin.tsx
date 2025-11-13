@@ -2,10 +2,25 @@ import "../styling/admin.scss";
 import FormInput from '../components/formcomp.tsx';
 
 export default function Admin(){
-
+    function RegisterComponent(){
+        return(
+            <div className="registerContainer">
+                <div className="headerRegisterContainer">
+                    <h1 className="mainHeaderRegister">Process, Humans and tools meant to success together</h1>
+                    <h3 className="subHeaderRegister">Boost Productivity, without needing expensive resources through utilising modern technoloogy today.</h3>
+                </div>
+                <div className="registerButtonContainer">
+                    <button className="registrationButton">Register Here</button>
+                </div>
+                <div className="techImageContainer">
+                    <img className="techimage" src="/public/Tech.png" alt="tech image"></img>
+                </div>
+            </div>
+        )
+    }
     function GenerateLogInForm(){
         return(
-            <>
+            <div className="loginContainer">
                 <form className="loginForm">
                     <div className="mainFormContainer">
                     <FormInput type="Email" inputType="text" />
@@ -23,22 +38,13 @@ export default function Admin(){
                         <a href="#" className="forgotPasswordText">Forgot Password</a>
                     </div>
                 </form>
-            </>
+            </div>
         )
     }
     return(
         <section className="adminContainer">
-                <div className="loginContainer">
-                    <GenerateLogInForm />
-                </div>
-                <div className="registerContainer">
-                    <div>
-                        Register
-                    </div>
-                    <div>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis ipsam officia velit autem accusamus nobis? Maxime, officia quos labore totam nulla illo beatae veritatis accusamus reiciendis similique pariatur, perspiciatis quis ex. Fugiat pariatur perspiciatis cumque! Tempore, cum ipsam! Placeat consequuntur eum, ab necessitatibus sit earum modi hic, facere reprehenderit molestiae et labore nemo id porro! Quas iusto alias aspernatur aliquam, assumenda error eos sunt magni eius vero, veniam odio sed corporis illum harum vel commodi facilis ut possimus hic reprehenderit adipisci tempore. Velit perferendis atque in, similique, debitis ullam praesentium laudantium saepe sint odit, minima eligendi nobis enim ab quibusdam.
-                    </div>
-                </div>
+            <GenerateLogInForm />
+            <RegisterComponent />
         </section>
     )
 }
