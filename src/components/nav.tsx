@@ -26,7 +26,11 @@
                 {name: "Contact", path:  "/contact", },
                 {name: "Admin", path:  "/Admin", },
             ];
-
+            
+            // Hides Admin Link from menu if on portal page
+            if (currentPath === "/Portal") {
+                Links = Links.filter(link => link.name !== "Admin");
+            }           
             return(
                 <>
                 {Links.filter(a => a.path !== currentPath).map((item) => (

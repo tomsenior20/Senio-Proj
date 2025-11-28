@@ -1,10 +1,12 @@
 import "../styling/home.scss";
 import BrandNameContainer from '../hooks/getBrandName.tsx';
 import Footer from "../components/footer.tsx";
+import RemoveDirect from '../components/removeDirect.tsx';
 
 export default function Home() {
     return(
         <>
+        <RemoveDirect />
         <header>
             <BrandNameContainer />
         </header>

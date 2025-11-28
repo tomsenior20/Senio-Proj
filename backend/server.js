@@ -72,3 +72,28 @@ app.post("/api/saveQuery", (req, res) => {
         res.json(results);
     })
 })
+
+app.post("/api/CheckSignon", (req, res) => {
+    const { email, password } = req.body;
+    const sql = "SELECT * FROM signon where email = ? and password = ?";
+    con.query(sql, [email, password], (err, results) => {
+        if (err) {
+            console.error("Query error:", err);
+            return res.status(500).json({ error: "Database error" });
+        }
+        res.json(results);
+    });
+})
+
+
+app.post("/api/CheckSignonTableByName", (req, res) => {
+    const { name } = req.body;
+    const sql = "SELECT admin, name FROM signon where name = ?";
+    con.query(sql, [name], (err, results) => {
+        if (err) {
+            console.error("Query error:", err);
+            return res.status(500).json({ error: "Database error" });
+        }
+        res.json(results);
+    });
+})

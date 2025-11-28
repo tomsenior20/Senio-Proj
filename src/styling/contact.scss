@@ -14,6 +14,16 @@
     letter-spacing: 0.013em;
 }
 
+.contactSubHeader{
+    font: 400 24px var(--defaultText);
+    max-width: 35ch;
+    line-height: 26px;
+    color: $headerDefaultColor;
+    letter-spacing: 0.013em;
+    text-align: center;
+    margin-top: 20px;
+}
+
 .formContainer {
     padding: 1em;
     @include flex-column;
@@ -61,7 +71,7 @@
 }
 
 .formLabel {
-    font: 600 22px var(--defaultText);
+    font: 500 22px var(--defaultText);
     line-height: 25px;
     color: #000;
     margin: 5px 0;
@@ -161,9 +171,24 @@
         margin: 1em;
     }
 
+    .formInput{
+        padding: 5px;
+    }
+
+    .formLabel{
+        padding: 5px;
+        font-size: 18px;
+    }
+
     .inputContainer {
         grid-template-columns: 1fr;
-        gap: 10px;
+        gap: 1px;
         padding: 0.2em;
+    }
+    .textcontainer,
+    .numbercontainer,
+    .emailcontainer{
+        height: 100px;
+        padding: 0.5em;
     }
 }

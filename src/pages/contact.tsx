@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import "../styling/contact.scss" 
 import Footer from '../components/footer';
+import RemoveDirect from '../components/removeDirect.tsx';
 
     interface FormData {
         name: string;
@@ -14,6 +15,7 @@ import Footer from '../components/footer';
         return(
             <header className="contactHeaderContainer">
                 <h1 className="contactHeader">Contact</h1>
+                <h3 className="contactSubHeader">Please fill out the form below, we will be in contact as soon as possible</h3>
             </header>
         )
     }
@@ -142,6 +144,7 @@ import Footer from '../components/footer';
 export default function Contact(){
     return(
         <>
+        <RemoveDirect />
         <ContactHeader/> 
         <GenerateContactForm/>
         <Footer/>

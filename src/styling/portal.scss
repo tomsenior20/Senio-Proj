@@ -1,0 +1,178 @@
+@use './default' as *;
+
+.mainPortalContainer{
+    width:100%;
+    padding: 1em 0.5em;
+    background-color: rgba(227, 227, 227, 0.4);
+    height:100%;
+    @include flex-column;
+}
+
+.loggedInMainContainer{
+    @include flex-row;
+    width: 95%;
+    margin: 10px auto;
+    padding:2em 1em;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    -ms-border-radius: 9px;
+    -o-border-radius: 9px;
+}
+
+.userLoggedinContainer{
+    width: 100%;
+}
+
+.currentDateContainer, .userLoggedinContainer{
+    margin: 5px 0;
+    padding: 5px;
+}
+
+.curDateText{
+    font: 500 22px var(--defaultText);
+    line-height: 28px;
+    color: #000;
+    padding: 5px;
+    margin:5px;
+}
+
+.loggedinLeftContainer{
+    width:70%;
+    padding: 2em 1em;
+}
+
+.loggedinUserText{
+    font:600 40px var(--defaultText);
+    line-height: 40px;
+    color: black;
+    padding: 5px;
+    margin:5px;
+}
+
+.loggedInSubText{
+    font:500 22px var(--defaultText);
+    line-height: 36px;
+    color: black;
+    padding: 5px;
+    margin:5px;
+}
+
+
+.loggedinRightContainer{
+    width: 30%;
+    display: grid;
+    place-content: center;
+    padding: 2em 1em;
+}
+
+.welcomeImage{
+    background-color: red;
+    width: 80%;
+    border-radius: 10px !important;
+    object-fit: cover;
+    -webkit-border-radius: 10px !important;
+    -moz-border-radius: 10px !important;
+    -ms-border-radius: 10px !important;
+    -o-border-radius: 10px !important;
+}
+
+.dashboardContainer{
+    background-color: rgba(255, 255, 255, 0.7);
+    width:95%;
+    margin: 10px auto;
+    padding: 1em;
+}
+
+.levelContainer{
+    padding: 0.5rem 1rem;
+    @include flex-row;
+    align-items: center;
+}
+
+.leveluserText {
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 40px;
+    font-family: var(--defaultText);
+    color: #000;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    flex:1;
+}
+
+.adminAccessContainer{
+    @include flex-row;
+    padding: 1em;
+    border-radius: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    -ms-border-radius: 9px;
+    -o-border-radius: 9px;
+    margin: 20px 0px;
+}
+
+.adminAccessContainer ul{
+    @include flex-row;
+    display: inline-flex;
+    padding: 0.5em;
+    margin: 0.5em;
+    width: 100%;
+}
+
+.adminAccessContainer li {
+    margin: 10px 20px;
+    background-color: rgba(227, 227, 227, 0.4);
+    list-style: none;
+    padding: 0.5em 1em;
+    border-radius: 12px;
+    box-shadow: 3px 2px 6px rgba(0,0,0,0.15);
+    display: block;
+    transition: 
+        border 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.adminAccessContainer li:hover {
+    border: 1px solid black;
+    transform: scale(1.02);
+    box-shadow: 4px 3px 8px rgba(0,0,0,0.25);
+}
+
+.adminAccessContainer li a {
+    font:400 18px var(--defaultText);
+    line-height: 25px;
+    color: black;
+    text-decoration: none;
+}
+
+.adminMenu{
+    @include flex-row;
+    align-items: center;
+}
+
+.adminIcon{
+    margin: 5px;
+}
+
+
+
+@media screen and (max-width:750px) {
+    .loggedInMainContainer{
+        flex-direction: column;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .loggedinLeftContainer{
+        width:100%;
+    }
+
+    .loggedinRightContainer{
+        width: 100%;
+        justify-content: center;
+        display: flex;
+    }
+}
