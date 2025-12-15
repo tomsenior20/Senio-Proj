@@ -78,12 +78,16 @@ export default function Portal() {
                         <h3 className="loggedInSubText">Always Stay Connected with modern tools, and features</h3>
                     </div>  
                 </div>
-                <section className="dashboardMain">
-                    <DashboardStat dashboardName="Views" />
-                    <DashboardStat dashboardName="Ticket Logged" />
-                    <DashboardStat dashboardName="Views" />
-                    <DashboardStat dashboardName="Ticket Logged" />
-                </section>
+                    <details className="collapse border w-full dashboardCollapse" name="my-accordion-det-1" open>
+                    <summary className="collapse-title font-semibold">Dashboard Stats</summary>
+                    <section className="dashboardMain">
+                    <div className="collapse-content text-sm"></div>
+                        <DashboardStat dashboardName="Views" />
+                        <DashboardStat dashboardName="Ticket Logged" />
+                        <DashboardStat dashboardName="Views" />
+                        <DashboardStat dashboardName="Ticket Logged" />
+                    </section>
+                    </details>
             </div>
         </div>
         </main>

@@ -83,7 +83,7 @@
 
 @media screen and (max-width:750px) {
     .sideBarContainer{
-        width: 40%;
+        width: 100%;
     }
     .leveluserText{
         margin: 1rem 0.5em;
@@ -95,11 +95,12 @@
     }
 
     .adminAccessContainer ul {
-        flex-direction: column;
+        flex-direction: row;
     }
 
     .adminAccessContainer li {
         margin: 0;
+        width: 50%;
         padding: 10px 5px;
     }
 
