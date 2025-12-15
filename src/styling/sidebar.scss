@@ -7,9 +7,15 @@
     flex-direction: column;
 }
 
-.leveluserText {
-    font-weight: 600;
-    font-size: 1.6rem;
+.levelContainer{
+    @include flex-row;
+    justify-content: center;
+    align-items: center;
+}
+
+.leveluserText,.levelText {
+    font-weight: 500;
+    font-size: 1.3rem;
     line-height: 1.5;
     font-family: "Poppins", sans-serif;
     color: #000;
@@ -18,21 +24,9 @@
     text-align: center;
 }
 
-
-.levelText {
-    font-weight: 500;
-    font-size: 1.4rem;
-    line-height: 1.5;
-    font-family: "Poppins", sans-serif;
-    color: #000;
-    padding: 0.2rem;
-    margin: 0.2rem;
-    text-align: center;
-}
-
 .adminAccessContainer{
     @include flex-row;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     margin: 10px 0px;
     flex: 1;
 }
@@ -84,11 +78,6 @@
 @media screen and (max-width:750px) {
     .sideBarContainer{
         width: 100%;
-    }
-    .leveluserText{
-        margin: 1rem 0.5em;
-        font-size: 22px;
-        word-break: word;
     }
     .adminAccessContainer{
         padding: 5px;

@@ -4,6 +4,7 @@ import "../styling/admin.scss";
 import FormInput from '../components/formcomp.tsx';
 import { useEffect, useState } from "react";
 import RemoveDirect from "../components/removeDirect.tsx";
+import ErrorAlert from "../components/messages/error.tsx";
 
 function RegisterComponent() {
     return (
@@ -95,11 +96,13 @@ export default function Admin() {
     const navigate = useNavigate();
     const isLocalhost = window.location.hostname === "localhost";
     const baseUrl =  isLocalhost ? `${import.meta.env.VITE_API_URL}:${import.meta.env.VITE_API_PORT}` : `${import.meta.env.VITE_LAN_API_URL}:${import.meta.env.VITE_LAN_API_PORT}` ;
-
+    const [errorMessage, setErrorMessage] = useState<string | null>(null);
+    const [showError, setShowError] = useState<boolean>(false);
     async function handleLogIn(e: any) {
         e.preventDefault();
         if((!email && !password) || (email && !password) || (!email && password)){
-            alert("Inputs are invalid");
+            setErrorMessage("Inputs are invalid");
+            setShowError(true);
             return;
         }
 
@@ -125,10 +128,12 @@ export default function Admin() {
                     localStorage.setItem("logged_in_name", data[0].name);
                     navigate("/portal");
                 } else{
-                    alert("Either email or password doesn't match our records");
+                    setErrorMessage("Either email or password doesn't match our records");
+                    setShowError(true);
                 }
             } else {
-                alert("Login failed");
+                setErrorMessage("Login Failed")
+                setShowError(true);
             }
         } catch(error){
             console.log("Error signining in" + error);
@@ -137,6 +142,10 @@ export default function Admin() {
 
     return (
         <section className="adminContainer">
+              <ErrorAlert
+                show={showError}
+                message={errorMessage ?? ""}
+               />
             <RemoveDirect />
             <GenerateLogInForm
                 email={email}
