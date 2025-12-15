@@ -141,11 +141,12 @@ export default function Admin() {
     }
 
     return (
-        <section className="adminContainer">
-              <ErrorAlert
+        <>
+            <ErrorAlert
                 show={showError}
                 message={errorMessage ?? ""}
-               />
+                />
+        <section className="adminContainer">
             <RemoveDirect />
             <GenerateLogInForm
                 email={email}
@@ -155,9 +156,10 @@ export default function Admin() {
                 showPassword={showPassword}
                 setShowPassword={setShowPassword}
                 handleLogIn={handleLogIn}
-            />
+                />
 
             <RegisterComponent />
         </section>
+        </>
     );
 }

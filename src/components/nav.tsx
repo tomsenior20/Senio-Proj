@@ -1,11 +1,18 @@
     import { useEffect, useState } from "react"
     import '../styling/nav.scss';
     import BrandName from '../hooks/useNavBrandName.tsx';
+    import { useLocation } from "react-router-dom";
+
+    interface MobileListProps{
+        isMobile : boolean, 
+        currentPath : string
+    }
+
 
     export default function Navigation() {
         const [isMobileScreen, setIsMobileScreen] = useState<boolean>(false);
         const [menuOpen, setMenuOpen] = useState<boolean>(false);
-
+        const location = useLocation();
         useEffect(() => {
             const handleResize = () => setIsMobileScreen(window.innerWidth < 750);
             handleResize();
@@ -23,8 +30,7 @@
         }
 
         // Generate Mobile List Items
-        function ListItems({ isMobile } : {isMobile : boolean}){
-            const currentPath : string  = location.pathname;
+        function ListItems({ isMobile, currentPath } : MobileListProps){
             let Links = [
                 {name: "Home", path:  "/", },
                 {name: "Contact", path:  "/contact", },
@@ -32,8 +38,9 @@
             ];
             
             // Hides Admin Link from menu if on portal page
-            if (currentPath === "/Portal") {
+            if (currentPath === "/portal") {
                 Links = Links.filter(link => link.name !== "Admin");
+                Links.push({ name: "Log Out", path: "/" });
             }           
             return(
                 <>
@@ -56,7 +63,7 @@
                             <span className="mobileBar"></span>                        
                         </button>
                     ) : (
-                        <ListItems isMobile={false}/>
+                        <ListItems isMobile={false} currentPath={location.pathname}/>
                     )}
                 </div>
             )
@@ -70,7 +77,7 @@
             </nav>
             {isMobileScreen && menuOpen && (
                 <div className={`mobileMenuContainer ${menuOpen ? "open" : ""} `}>
-                    <ListItems isMobile={true}/>
+                    <ListItems isMobile={true} currentPath={location.pathname}/>
                 </div>
             )}
             </>
