@@ -97,3 +97,30 @@ app.post("/api/CheckSignonTableByName", (req, res) => {
         res.json(results);
     });
 })
+
+
+app.post("/api/SubmitContactForm", (req, res) => {
+    const { name } = req.body;
+    const sql = "Insert into contact_queries(name, number,email,product,message,message_sent)" +
+        "values(?,?,?,?,?,?)"
+    con.query(sql, [name], (err, results) => {
+        if (err) {
+            console.error("Query error:", err);
+            return res.status(500).json({ error: "Database error" });
+        }
+        res.json(results);
+    });
+})
+
+
+app.get("/api/getDashboardStart", (req, res) => {
+    const dashboardName = req.query.dashboardName;
+    const sql = "SELECT * FROM dashboardStats where statName = ?";
+    con.query(sql, [dashboardName], (err, results) => {
+        if (err) {
+            console.error("Query error:", err);
+            return res.status(500).json({ error: "Database error" });
+        }
+        res.json(results);
+    });
+});

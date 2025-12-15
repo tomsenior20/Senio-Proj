@@ -44,12 +44,12 @@
     margin: 2em;
     min-height: 500px;
     background: #eeeeee;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border-radius: 12px !important;
+    -webkit-border-radius: 12px !important;
+    -moz-border-radius: 12px !important;
+    -ms-border-radius: 12px !important;
+    -o-border-radius: 12px !important;
 }
 
 .inputContainer {
@@ -71,28 +71,40 @@
 }
 
 .formLabel {
-    font: 500 22px var(--defaultText);
-    line-height: 25px;
+    font: 500 24px var(--defaultText);
+    line-height: 29px;
     color: #000;
     margin: 5px 0;
     padding: 8px;
 }
 
 .formInput {
-    font: 300 17px var(--defaultText);
+    background-color: transparent;
+    border: 1px solid grey;
+    color: black;
+    font: 500 20px var(--defaultText);
     padding: 10px;
-    margin: 5px 0;
-    border-radius: 8px;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    -ms-border-radius: 8px;
-    -o-border-radius: 8px;
+    margin: 10px 0;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
     outline: none;
-    border: none;
+    transition: box-shadow 0.4s, transform 0.4s;
+    -webkit-transition: box-shadow 0.4s, transform 0.4s;
+    -moz-transition: box-shadow 0.4s, transform 0.4s;
+    -ms-transition: box-shadow 0.4s, transform 0.4s;
+    -o-transition: box-shadow 0.4s, transform 0.4s;
 }
 
 .formInput:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+    -o-transform: scale(1.02);
 }
 
 .textAreacontainer {
@@ -102,21 +114,32 @@
 }
 
 .formInputTextArea {
+    background-color: transparent;
     padding: 10px;
-    margin: 5px 0;
+    margin: 15px 0;
     height: 100px;
     width: 100%;
     outline: none;
-    border: none;
-    border-radius: 8px;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    -ms-border-radius: 8px;
-    -o-border-radius: 8px;
+    border: 1px solid grey;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+    transition: box-shadow 0.5s, transform 0.5s;
+    -webkit-transition: box-shadow 0.5s, transform 0.5s;
+    -moz-transition: box-shadow 0.5s, transform 0.5s;
+    -ms-transition: box-shadow 0.5s, transform 0.5s;
+    -o-transition: box-shadow 0.5s, transform 0.5s;
 }
 
 .formInputTextArea:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+    -o-transform: scale(1.02);
 }
 
 .formButtonContainer {
@@ -128,14 +151,16 @@
 }
 
 .formButtonContainer button {
-    background-color: black;
+    background-color: #5C5CFF;
+    box-shadow: 3px 0px 1px #5C5CFF;
+    border: none;
+    outline: none;
     position: relative;
     padding: 4px;
     width: 180px;
-    height: 35px;
     display: flex;
-    font: 400 18px var(--defaultText);
-    line-height: 2;
+    font: 500 22px var(--defaultText);
+    line-height: 28px;
     justify-content: center;
     align-items: center;
     flex-direction: row;
@@ -145,16 +170,22 @@
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
     color: #fff;
+    transition: transform 0.4s, border 0.4s;
+    -webkit-transition: transform 0.4s, border 0.4s;
+    -moz-transition: transform 0.4s, border 0.4s;
+    -ms-transition: transform 0.4s, border 0.4s;
+    -o-transition: transform 0.4s, border 0.4s;
 }
 
 .formButtonContainer button:hover {
-    transform: scale(1.05);
-    -webkit-transform: scale(1.05);
-    -moz-transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    -o-transform: scale(1.05);
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+    -o-transform: scale(1.02);
     border: 1px solid rgb(146, 144, 144);
     cursor: pointer;
+    box-shadow: 1px 2px 2px #5C5CFF;
 }
 
 @media screen and (max-width:850px) {

@@ -4,7 +4,8 @@ export default function GetBrandName(){
         const isLocalhost = window.location.hostname === "localhost";
         const baseUrl =  isLocalhost ? `${import.meta.env.VITE_API_URL}:${import.meta.env.VITE_API_PORT}` : `${import.meta.env.VITE_LAN_API_URL}:${import.meta.env.VITE_LAN_API_PORT}` ;
 
-        const [brandName, setBrandName] = useState("");
+        const [brandName, setBrandName] = useState<string>("");
+        
         useEffect(() => {
             fetch(`${baseUrl}/api/getAppSettings?name=BrandName`)
             .then(res => res.json())

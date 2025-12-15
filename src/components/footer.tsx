@@ -2,8 +2,7 @@ import '../styling/footer.scss';
 
 export default function Footer() {
 
-    function GetCurrentDate(){
-        var curDate = new Date().getFullYear();
+    function GetCurrentDate({curDate}: {curDate: number}){
         return(
             <div className='curDateContainer'>
                 <p className="curDateText">&copy;{curDate}</p>
@@ -14,8 +13,7 @@ export default function Footer() {
 
     return(
         <footer>
-            <GetCurrentDate />
+            <GetCurrentDate curDate={new Date().getFullYear()}/>
         </footer>
-    )
-    
+    )  
 }

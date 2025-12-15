@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
 import "../styling/portal.scss"
 import Footer from '../components/footer';
-import { FaSearch } from "react-icons/fa";
-import { FaCog } from "react-icons/fa";
 import { Navigate } from "react-router-dom";
+import SideBar from "../components/sidebar";
+import DashboardStat from "../components/dahsboard";
 
 interface LoggedIn{
     admin : boolean,
     userloggedIn : string;
 }
-
 
 function GetCurrentYear(){
     const date = new Date();
@@ -21,33 +20,11 @@ function GetCurrentYear(){
     )
 }
 
-function GenerateAdminMenu({admin} : {admin: boolean}){
-    console.log(admin);
-
-    return(
-        <div className="levelContainer">
-            <h1 className="leveluserText">Level of user: {admin ? "Admin" : "Non Admin"}</h1>
-            {admin && (
-                <div className="adminAccessContainer">
-                    <ul>
-                        <li>
-                            <a href="#" className="adminMenu"><FaSearch className="adminIcon" />User Search</a>
-                        </li>
-                        <li>
-                            <a href="#" className="adminMenu"><FaCog className="adminIcon" />Access Managements</a>
-                        </li>
-                    </ul>
-                </div>
-            )}
-        </div>
-    )
-}
-
 function GetPermissions(){
     const [LoggedIn, setLoggedInObj] = useState< LoggedIn| null >(null);
 
     useEffect(() => {
-         async function fetchPermissions() {
+        async function fetchPermissions() {
             const isLocalhost = window.location.hostname === "localhost";
             const baseUrl =  isLocalhost ? `${import.meta.env.VITE_API_URL}:${import.meta.env.VITE_API_PORT}` : `${import.meta.env.VITE_LAN_API_URL}:${import.meta.env.VITE_LAN_API_PORT}` ;
             try{
@@ -90,7 +67,9 @@ export default function Portal() {
     const isAdmin = GetPermissions();
     return(
         <>
+        <main>
         <div className="mainPortalContainer">
+            <SideBar levelOfUser={!!isAdmin?.admin} />
             <div className="loggedInMainContainer">
                 <div className="loggedinLeftContainer">
                     <GetCurrentYear />
@@ -99,14 +78,15 @@ export default function Portal() {
                         <h3 className="loggedInSubText">Always Stay Connected with modern tools, and features</h3>
                     </div>  
                 </div>
-                <div className="loggedinRightContainer">
-                    <img src="/public/Person.png" alt="WelcomeContainer" className="welcomeImage"></img>
-                </div>
-            </div>
-            <div className="dashboardContainer">
-                <GenerateAdminMenu admin={isAdmin?.admin ?? false} />
+                <section className="dashboardMain">
+                    <DashboardStat dashboardName="Views" />
+                    <DashboardStat dashboardName="Ticket Logged" />
+                    <DashboardStat dashboardName="Views" />
+                    <DashboardStat dashboardName="Ticket Logged" />
+                </section>
             </div>
         </div>
+        </main>
         <Footer/>
         </>
     )

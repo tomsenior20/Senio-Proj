@@ -35,7 +35,7 @@ header {
     font: 500 22px var(--defaultText);
     white-space: normal;
     letter-spacing: 0.013em;
-    line-height: 40px;
+    line-height: 28px;
     color: $headerDefaultColor;
     text-align: center;
     margin: 5px;
@@ -89,12 +89,14 @@ header {
     font: 600 23px var(--defaultText);
     line-height: 1.5;
     margin: 1em;
+    color: black;
 }
 
 .offeringSubHeader {
     font: 500 18px var(--defaultText);
     line-height: 1.5;
     margin: 0.5em 1em;
+    color: black;
 }
 
 .discoverMoreButton {

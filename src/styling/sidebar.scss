@@ -1,0 +1,126 @@
+@use './default' as *;
+
+.sideBarContainer{
+    width: 20%;
+    border: 1px solid rgba(173, 172, 172, 0.4);
+    display: flex;
+    flex-direction: column;
+}
+
+.leveluserText {
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    font-family: "Poppins", sans-serif;
+    color: #000;
+    padding: 0.2rem;
+    margin-top: 30px;
+    text-align: center;
+}
+
+
+.levelText {
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    font-family: "Poppins", sans-serif;
+    color: #000;
+    padding: 0.2rem;
+    margin: 0.2rem;
+    text-align: center;
+}
+
+.adminAccessContainer{
+    @include flex-row;
+    padding: 1rem;
+    margin: 10px 0px;
+    flex: 1;
+}
+
+.adminAccessContainer ul{
+    @include flex-column;
+    width: 100%;
+}
+
+.adminAccessContainer li {
+    width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    margin: 5px 0;
+    list-style: none;
+    padding: 10px;
+    transition: border 0.2s ease,transform 0.2s ease;
+    -webkit-transition: border 0.2s ease,transform 0.2s ease;
+    -moz-transition: border 0.2s ease,transform 0.2s ease;
+    -ms-transition: border 0.2s ease,transform 0.2s ease;
+    -o-transition: border 0.2s ease,transform 0.2s ease;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.adminAccessContainer li:hover {
+    border: 1px solid black;
+    transform: scale(1.02);
+    box-shadow: 0 2px 6px rgba(117, 117, 117, 0.05);
+    cursor: pointer;
+}
+
+.adminAccessContainer li a {
+    font:300 0.9rem "Poppins", sans-serif;
+    line-height: 25px;
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    padding: 0 1rem;
+    display: block;
+    text-align: center;
+}
+
+.adminIcon{
+    margin: 5px;
+    height:20px;
+    width: 20px;
+    display: none;
+}
+
+@media screen and (max-width:750px) {
+    .sideBarContainer{
+        width: 40%;
+    }
+    .leveluserText{
+        margin: 1rem 0.5em;
+        font-size: 22px;
+        word-break: word;
+    }
+    .adminAccessContainer{
+        padding: 5px;
+    }
+
+    .adminAccessContainer ul {
+        flex-direction: column;
+    }
+
+    .adminAccessContainer li {
+        margin: 0;
+        padding: 10px 5px;
+    }
+
+    .adminAccessContainer button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .adminIcon{
+        display: block;
+        left: 0;
+    }
+
+    .buttonText{
+        display: none;
+    }
+}

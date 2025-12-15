@@ -69,8 +69,23 @@ nav {
 }
 
 .mobileMenuContainer {
+    background-color: rgb(255, 255, 255);
     width: 100%;
     @include flex-column;
+    height:100vh;
+    position: fixed;
+    overflow: hidden;
+    z-index: 9999;
+    transform: translateX(100%);
+    transition: transform 5s ease-in-out;
+    -webkit-transition: transform 5s ease-in-out;
+    -moz-transition: transform 5s ease-in-out;
+    -ms-transition: transform 5s ease-in-out;
+    -o-transition: transform 5s ease-in-out;
+}
+
+.mobileMenuContainer.open {
+    transform: translateX(0);
 }
 
 .mobileMenu {
@@ -108,13 +123,27 @@ nav {
     }
 }
 
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
 @media  screen and (max-width:750px) {
     nav{
         padding: 0.5em 1em;
     }
     .mobileMenu{
         padding: 0.5em;
-    }
+        transition: fadeIn 2 ease-in;
+        -webkit-transition: fadeIn 2 ease-in;
+        -moz-transition: fadeIn 2 ease-in;
+        -ms-transition: fadeIn 2 ease-in;
+        -o-transition: fadeIn 2 ease-in;
+}
     .mobileMenu li:hover, .mobileMenu li:active{
         background-color: rgba(249, 249, 249, 0.6);
     }

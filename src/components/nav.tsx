@@ -3,8 +3,8 @@
     import BrandName from '../hooks/useNavBrandName.tsx';
 
     export default function Navigation() {
-        const [isMobileScreen, setIsMobileScreen] = useState(false);
-        const [menuOpen, setMenuOpen] = useState(false);
+        const [isMobileScreen, setIsMobileScreen] = useState<boolean>(false);
+        const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
         useEffect(() => {
             const handleResize = () => setIsMobileScreen(window.innerWidth < 750);
@@ -13,13 +13,17 @@
             return () => window.removeEventListener("resize", handleResize);
         }, []);
 
+        useEffect(() => {
+            document.body.style.overflow  = (menuOpen) ? "hidden" : "";
+        }, [menuOpen]);
+
         // Mobile Menu Click
         function mobileMenuClick(){
             setMenuOpen(menuOpen ? false : true);
         }
 
         // Generate Mobile List Items
-        function GenerateListItems({ isMobile } : {isMobile : boolean}){
+        function ListItems({ isMobile } : {isMobile : boolean}){
             const currentPath : string  = location.pathname;
             let Links = [
                 {name: "Home", path:  "/", },
@@ -42,28 +46,19 @@
             )
         }
         
-        function GenerateMobileList(){
-            const [isMobile, setIsMobile] = useState(false);
-
-            useEffect(() => {
-                const handleResize = () => setIsMobile(window.innerWidth < 750);
-                handleResize();
-                window.addEventListener("resize", handleResize);
-                return () => window.removeEventListener("resize", handleResize);
-            },[]);
-
+        function MobileList(){
             return(
-                <>
-                    {isMobile ? (
+                <div className="MobileMenuListContainer">
+                    {isMobileScreen ? (
                         <button  onClick={mobileMenuClick} className="mobileMenuButton">
                             <span className="mobileBar"></span>
                             <span className="mobileBar"></span>
                             <span className="mobileBar"></span>                        
                         </button>
                     ) : (
-                        <GenerateListItems isMobile={false}/>
+                        <ListItems isMobile={false}/>
                     )}
-                </>
+                </div>
             )
         }
 
@@ -71,13 +66,11 @@
             <>
             <nav>
                 <BrandName />
-                <div className="MobileMenuListContainer">
-                    <GenerateMobileList />
-                </div>
+                <MobileList />
             </nav>
             {isMobileScreen && menuOpen && (
-                <div className="mobileMenuContainer">
-                    <GenerateListItems isMobile={true}/>
+                <div className={`mobileMenuContainer ${menuOpen ? "open" : ""} `}>
+                    <ListItems isMobile={true}/>
                 </div>
             )}
             </>

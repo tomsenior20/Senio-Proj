@@ -45,7 +45,7 @@ import RemoveDirect from '../components/removeDirect.tsx';
         return(
             <div className={type + "container"}>
                 <label className="formLabel" htmlFor={type + "input"}>Enter {message}</label>
-                <input type={type} className="formInput" placeholder={"Enter " + placeholderText} id={type + "input"} name={message.toLowerCase()} value={value} onChange={onChange}></input>
+                <input type={type} className="formInput input neutral-content" placeholder={"Enter " + placeholderText} id={type + "input"} name={message.toLowerCase()} value={value} onChange={onChange}></input>
             </div>
         )
     }

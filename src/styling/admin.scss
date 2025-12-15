@@ -25,9 +25,10 @@
 .loginForm{
     @include flex-column;
     width:60%;
-    height:70%;
     background: #fff;
     padding: 1em;
+    border-radius: 12px;
+    box-shadow: 2px 2px 4px lightgray;
 }
 
 .mainFormContainer{
@@ -43,17 +44,22 @@
 }
 
 .SignInformLabel{
-    font: 400 16px var(--defaultText);
+    font: 400 20px var(--defaultText);
     line-height: 20px;
-    margin: 3px 0;
-    padding: 5px 0;
+    margin: 3px;
+    padding: 5px;
 }
 
 .SignInformInput{
     margin: 3px 0;
-    padding: 5px;
+    padding: 5px 10px;
+    border-radius: 6px;
     border:1px solid rgb(225, 225, 225);
     font-size: 17px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
 }
 
 .showPasswordContainer{
@@ -66,7 +72,7 @@
 }
 
 .showPasswordText{
-    font: 400 16px var(--defaultText);
+    font: 500 20px var(--defaultText);
     line-height:18px;
     color: black;
 }
@@ -80,7 +86,7 @@
 }
 
 .toggleText{
-    font: 400 16px var(--defaultText);
+    font: 500 18px var(--defaultText);
     line-height: 18px;
     color: black;
     margin: 0 10px;
@@ -95,19 +101,21 @@
     padding: 12px 24px;
     color: #fff;
     margin: 15px 0;
-    font: 400 16px var(--defaultText);
-    line-height: 18px;
+    font: 500 18px var(--defaultText);
+    line-height: 24px;
     background-color: #5C5CFF;
     box-shadow: 3px 0px 1px #5C5CFF;
     border: 1px solid transparent;
     border-radius: 4px ;
-    -webkit-border-radius: 4px ;
-    -moz-border-radius: 4px ;
-    -ms-border-radius: 4px ;
-    -o-border-radius: 4px ;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, cursor 0.3s ease-in-out;
+    -webkit-transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, cursor 0.3s ease-in-out;
+    -moz-transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, cursor 0.3s ease-in-out;
+    -ms-transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, cursor 0.3s ease-in-out;
+    -o-transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, cursor 0.3s ease-in-out;
 }
 
 .signInButton:hover, .signInButton:active{
+    cursor: pointer;
     background-color: rgba(210, 230, 242, 0.9);
     color: #000;
     box-shadow: 3px 0px 1px rgba(210, 230, 242, 0.9);;
@@ -120,11 +128,10 @@
     @include flex-row;
     justify-content: center;
     align-items: center;
-    min-height: 100px;
 }
 
 .forgotPasswordText{
-    font: 400 16px var(--defaultText);
+    font: 500 18px var(--defaultText);
     line-height: 20px;
     width: 100%;
     padding: 15px 5px;
@@ -163,13 +170,18 @@
 
 .registrationButton{
     width: 100%;
-    padding: 1em;
-    font: 400 16px var(--defaultText);
-    line-height: 18px;
-    cursor: pointer;
+    padding: 12px 24px;
+    font: 500 18px var(--defaultText);
+    line-height: 24px;
+    transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out;
+    -webkit-transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out;
+    -moz-transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out;
+    -ms-transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out;
+    -o-transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out;
 }
 
 .registrationButton:hover, .registrationButton:active{
+    cursor: pointer;
     background-color: rgba(210, 230, 242, 0.9);
     border: 1px solid white;
 }
