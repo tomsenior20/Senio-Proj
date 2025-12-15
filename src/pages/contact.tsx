@@ -133,7 +133,7 @@ import RemoveDirect from '../components/removeDirect.tsx';
                         </div>
                     </div>
                     <div className="formButtonContainer">
-                    <button type="submit" className="contactFormButton">Submit Form
+                    <button type="submit" className="contactFormButton btn btn-outline btn-primary">Submit Form
                     </button>
                     </div>
                 </form>

@@ -151,10 +151,6 @@
 }
 
 .formButtonContainer button {
-    background-color: #5C5CFF;
-    box-shadow: 3px 0px 1px #5C5CFF;
-    border: none;
-    outline: none;
     position: relative;
     padding: 4px;
     width: 180px;
@@ -164,17 +160,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    border-radius: 8px;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    -ms-border-radius: 8px;
-    -o-border-radius: 8px;
-    color: #fff;
-    transition: transform 0.4s, border 0.4s;
-    -webkit-transition: transform 0.4s, border 0.4s;
-    -moz-transition: transform 0.4s, border 0.4s;
-    -ms-transition: transform 0.4s, border 0.4s;
-    -o-transition: transform 0.4s, border 0.4s;
+    color: black;
 }
 
 .formButtonContainer button:hover {

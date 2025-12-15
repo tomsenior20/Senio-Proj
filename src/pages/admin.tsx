@@ -18,7 +18,7 @@ function RegisterComponent() {
             </div>
 
             <div className="registerButtonContainer">
-                <button className="registrationButton">Register Here</button>
+                <button className="registrationButton btn btn-outline">Register Here</button>
             </div>
 
             <div className="techImageContainer">
@@ -60,7 +60,7 @@ function GenerateLogInForm({
                         <input
                             type="checkbox"
                             id="passwordToggle"
-                            className="toggleInput"
+                            className="toggleInput toggle toggle-primarary"
                             checked={showPassword}
                             onChange={() => setShowPassword((prev: boolean) => !prev)}
                         />
@@ -70,7 +70,7 @@ function GenerateLogInForm({
                     </div>
 
                     <div className="signInButtonContainer">
-                        <button className="signInButton" onClick={handleLogIn}>
+                        <button className="btn btn-outline btn-primary signInButton" onClick={handleLogIn}>
                             Sign In
                         </button>
                     </div>
