@@ -6,10 +6,20 @@ import SideBar from '../components/sidebar';
 import DashboardStat from '../components/dahsboard';
 import DashboardCollapse from '../components/DashboardComponent';
 import GetAPI from '../components/api/api';
+import APIGet from '../components/api/GetAPI';
 
 interface LoggedIn {
   admin: boolean;
   userloggedIn: string;
+}
+
+interface ContactRecordProps {
+  email: string;
+  message: string;
+  name: string;
+  number: number;
+  product: string;
+  date_logged: string;
 }
 
 function PortalHeader({
@@ -40,6 +50,80 @@ function GetCurrentYear() {
   return (
     <div className='currentDateContainer'>
       <p className='curDateText'>{dateString}</p>
+    </div>
+  );
+}
+
+function GetContactRecords() {
+  const [contactRecords, setContactRecords] = useState<ContactRecordProps[]>(
+    []
+  );
+
+  useEffect(() => {
+    // Get Records
+    async function GetRecords() {
+      const data = await APIGet({
+        APIEndPoint: 'getContactRecords',
+        parameter: '',
+        value: '',
+      });
+
+      console.log(data);
+      setContactRecords(data);
+    }
+    GetRecords();
+  }, []);
+
+  return (
+    <div className='overflow-x-auto bg-gray-200 text-black w-full'>
+      <table className='table-lg w-full border border-black'>
+        <thead>
+          <tr>
+            <th className='text-neutral text-lg border border-black !p-2'>
+              Name
+            </th>
+            <th className='text-neutral text-lg border border-black !p-2'>
+              Message
+            </th>
+            <th className='text-neutral text-lg border border-black !p-2'>
+              Email
+            </th>
+            <th className='text-neutral text-lg border border-black !p-2'>
+              Product
+            </th>
+            <th className='text-neutral text-lg border border-black !p-2'>
+              Number
+            </th>
+            <th className='text-neutral text-lg border border-black !p-2'>
+              Date Logged
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {contactRecords.map((item) => (
+            <tr key={`${item.name}-${item.message}`}>
+              <td className='text-neutral text-md  border border-black !p-1'>
+                {item.name}
+              </td>
+              <td className='text-neutral text-md border border-black !p-1'>
+                {item.message}
+              </td>
+              <td className='text-neutral text-md border border-black !p-1'>
+                {item.email}
+              </td>
+              <td className='text-neutral text-md border border-black !p-1'>
+                {item.product}
+              </td>
+              <td className='text-neutral text-md border border-black !p-1'>
+                {item.number}
+              </td>
+              <td className='text-neutral text-md border border-black !p-1'>
+                {item.date_logged}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
@@ -93,11 +177,17 @@ export default function Portal() {
               <GetCurrentYear />
             </PortalHeader>
             {/* Containers containing dasboard stats */}
-            <DashboardCollapse title='Dashboard Stats'>
+            <DashboardCollapse title='Dashboard Stats' idProp='dashboardStats'>
               <DashboardStat dashboardName='Views' />
               <DashboardStat dashboardName='Ticket Logged' />
               <DashboardStat dashboardName='Views' />
               <DashboardStat dashboardName='Ticket Logged' />
+            </DashboardCollapse>
+            <DashboardCollapse
+              title='Open Contact Records'
+              idProp='contactRecords'
+            >
+              <GetContactRecords />
             </DashboardCollapse>
           </div>
         </div>

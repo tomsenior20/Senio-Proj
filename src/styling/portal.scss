@@ -92,6 +92,11 @@
   font: 500 18px 'italic san-serif';
 }
 
+#contactRecords {
+  display: flex;
+}
+
+// Media query
 @media screen and (max-width: 750px) {
   .loggedInMainContainer {
     flex-direction: column;

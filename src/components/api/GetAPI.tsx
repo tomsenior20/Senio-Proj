@@ -24,10 +24,9 @@ export default async function APIGet<TResponse = any, TBody = unknown>({
   const baseUrl = isLocalhost ? localEndPoint : lanEndPoint;
 
   // Try API Call
+  const endquery = parameter && value ? `?${parameter}=${value}` : '';
   try {
-    const res = await fetch(
-      `${baseUrl}/api/${APIEndPoint}?${parameter}=${value}`
-    );
+    const res = await fetch(`${baseUrl}/api/${APIEndPoint}${endquery}`);
 
     return await res.json();
   } catch (error) {
