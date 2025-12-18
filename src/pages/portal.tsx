@@ -1,14 +1,37 @@
-import { useEffect, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import '../styling/portal.scss';
 import Footer from '../components/footer';
 import { Navigate } from 'react-router-dom';
 import SideBar from '../components/sidebar';
 import DashboardStat from '../components/dahsboard';
 import DashboardCollapse from '../components/DashboardComponent';
+import GetAPI from '../components/api/api';
 
 interface LoggedIn {
   admin: boolean;
   userloggedIn: string;
+}
+
+function PortalHeader({
+  isAdmin,
+  children,
+}: {
+  isAdmin: any;
+  children: ReactNode;
+}) {
+  return (
+    <div className='loggedinLeftContainer'>
+      {children}
+      <div className='userLoggedinContainer'>
+        <h1 className='loggedinUserText'>
+          Welcome back: {isAdmin?.userloggedIn}
+        </h1>
+        <h3 className='loggedInSubText'>
+          Always Stay Connected with modern tools, and features
+        </h3>
+      </div>
+    </div>
+  );
 }
 
 function GetCurrentYear() {
@@ -26,25 +49,14 @@ function GetPermissions() {
 
   useEffect(() => {
     async function fetchPermissions() {
-      const isLocalhost = window.location.hostname === 'localhost';
-      const baseUrl = isLocalhost
-        ? `${import.meta.env.VITE_API_URL}:${import.meta.env.VITE_API_PORT}`
-        : `${import.meta.env.VITE_LAN_API_URL}:${
-            import.meta.env.VITE_LAN_API_PORT
-          }`;
       try {
         const name = localStorage.getItem('logged_in_name');
-        const res = await fetch(`${baseUrl}/api/CheckSignonTableByName`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            name,
-          }),
+
+        const data = await GetAPI<any[], { name: string }>({
+          APIEndPoint: 'CheckSignonTableByName',
+          body: { name },
         });
 
-        const data = await res.json();
         if (data) {
           for (var item of data) {
             setLoggedInObj({
@@ -73,19 +85,14 @@ export default function Portal() {
     <>
       <main>
         <div className='mainPortalContainer'>
+          {/* Side Bar */}
           <SideBar levelOfUser={!!isAdmin?.admin} />
           <div className='loggedInMainContainer'>
-            <div className='loggedinLeftContainer'>
+            {/* Main Header Section  */}
+            <PortalHeader isAdmin={isAdmin}>
               <GetCurrentYear />
-              <div className='userLoggedinContainer'>
-                <h1 className='loggedinUserText'>
-                  Welcome back: {isAdmin?.userloggedIn}
-                </h1>
-                <h3 className='loggedInSubText'>
-                  Always Stay Connected with modern tools, and features
-                </h3>
-              </div>
-            </div>
+            </PortalHeader>
+            {/* Containers containing dasboard stats */}
             <DashboardCollapse title='Dashboard Stats'>
               <DashboardStat dashboardName='Views' />
               <DashboardStat dashboardName='Ticket Logged' />
