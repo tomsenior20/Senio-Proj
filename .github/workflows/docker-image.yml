@@ -2,17 +2,42 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ['main']
   pull_request:
-    branches: [ "main" ]
+    branches: ['main']
 
 jobs:
-
-  build:
-
+  lint-and-test:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      # Checkout the repository
+      - uses: actions/checkout@v4
+
+      # Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # Run lint
+      - name: Run lint
+        run: npm run lint
+
+  build-docker:
+    runs-on: ubuntu-latest
+    needs: lint-and-test # Ensure lint and tests pass first
+    steps:
+      # Checkout the repository
+      - uses: actions/checkout@v4
+
+      # Build Docker image
+      - name: Build Docker image
+        run: |
+          set -e
+          IMAGE_TAG=my-image-name:${GITHUB_SHA}
+          echo "Building Docker image with tag $IMAGE_TAG"
+          docker build . -f Dockerfile -t $IMAGE_TAG
