@@ -6,6 +6,11 @@ import { useEffect, useState } from "react";
 import RemoveDirect from "../components/removeDirect.tsx";
 import ErrorAlert from "../components/messages/error.tsx";
 
+interface LogInformInputs{
+    username : string, 
+    password: string
+}
+
 function RegisterComponent() {
     return (
         <div className="registerContainer">
@@ -90,16 +95,19 @@ function GenerateLogInForm({
 }
 
 export default function Admin() {
-    const [showPassword, setShowPassword] = useState(false);
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    // State Adding
+    const [showPassword, setShowPassword] = useState<boolean>(false);
+    const [email, setEmail] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
+    const [errorMessage, setErrorMessage] = useState<string | null>(null);
+    const [showError, setShowError] = useState<boolean>(false);
+    // Use Navigate Import
     const navigate = useNavigate();
     const isLocalhost = window.location.hostname === "localhost";
     const baseUrl =  isLocalhost ? `${import.meta.env.VITE_API_URL}:${import.meta.env.VITE_API_PORT}` : `${import.meta.env.VITE_LAN_API_URL}:${import.meta.env.VITE_LAN_API_PORT}` ;
-    const [errorMessage, setErrorMessage] = useState<string | null>(null);
-    const [showError, setShowError] = useState<boolean>(false);
     async function handleLogIn(e: any) {
         e.preventDefault();
+
         if((!email && !password) || (email && !password) || (!email && password)){
             setErrorMessage("Inputs are invalid");
             setShowError(true);
@@ -142,10 +150,7 @@ export default function Admin() {
 
     return (
         <>
-            <ErrorAlert
-                show={showError}
-                message={errorMessage ?? ""}
-                />
+        <ErrorAlert show={showError}    message={errorMessage ?? ""} />
         <section className="adminContainer">
             <RemoveDirect />
             <GenerateLogInForm
@@ -157,7 +162,6 @@ export default function Admin() {
                 setShowPassword={setShowPassword}
                 handleLogIn={handleLogIn}
                 />
-
             <RegisterComponent />
         </section>
         </>

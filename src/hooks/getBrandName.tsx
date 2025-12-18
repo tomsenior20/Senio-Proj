@@ -17,11 +17,11 @@ export default function GetBrandName(){
             .catch(err => console.error(err));
         }, []);
     return(
-        <>
+        <header>
             <div className="headerContainer">
                 <h1 className="headerTitle">{brandName}</h1>
                 <p className="subHeaderTitle">Where the door to centeralised innovation occurs, exploring better ways to control your personal development better</p>
             </div>
-        </>
+        </header>
     )
 }

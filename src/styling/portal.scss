@@ -1,120 +1,125 @@
 @use './default' as *;
 
-.mainPortalContainer{
-    width:100%;
-    background-color: rgb(252, 252, 252);
-    @include flex-row;
-    flex: 1;
-    min-height: 0;
+.mainPortalContainer {
+  width: 100%;
+  background-color: rgb(252, 252, 252);
+  @include flex-row;
+  flex: 1;
+  min-height: 0;
 }
 
-.loggedInMainContainer{
-    @include flex-column;
-    width: 95%;
-    margin: 10px auto;
-    padding:1rem 0.5rem;
-    border-radius: 9px;
-    -webkit-border-radius: 9px;
-    -moz-border-radius: 9px;
-    -ms-border-radius: 9px;
-    -o-border-radius: 9px;
+.loggedInMainContainer {
+  @include flex-column;
+  flex: 1;
+  min-width: 0;
+  margin: 10px auto;
+  padding: 1rem 0.5rem;
+  border-radius: 9px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  -ms-border-radius: 9px;
+  -o-border-radius: 9px;
+}
+.dashstatsContainer {
+  width: 100%;
+  padding: 1rem;
 }
 
-.userLoggedinContainer{
+.userLoggedinContainer {
+  width: 100%;
+}
+
+.currentDateContainer,
+.userLoggedinContainer {
+  margin: 5px 0;
+  padding: 5px;
+}
+
+.curDateText {
+  font: 400 1.2rem 'Inter san-serif';
+  line-height: 28px;
+  color: #000;
+  margin: 10px 15px;
+}
+
+.loggedinLeftContainer {
+  width: 100%;
+  margin: 20px 25px;
+}
+
+.loggedinUserText {
+  padding: 10px 0;
+  margin: 5px 10px;
+  font: 600 1.8rem 'Inter san-serif';
+  line-height: 40px;
+  color: black;
+}
+
+.loggedInSubText {
+  margin: 5px 10px;
+  padding: 5px 0;
+  font: 300 1.1rem 'Inter san-serif';
+  line-height: 1.5;
+  color: black;
+}
+
+.dashboardContainer {
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 95%;
+  margin: 10px auto;
+  padding: 1em;
+}
+
+.levelContainer {
+  padding: 0.5rem 1rem;
+  @include flex-row;
+  align-items: center;
+}
+
+.adminMenu {
+  @include flex-row;
+  align-items: center;
+}
+
+.dashboardSettingsContainer {
+  padding: 1rem;
+}
+
+.dashboardCollapse {
+  padding: 1rem;
+  border: 1px solid black;
+  color: black;
+  font: 500 18px 'italic san-serif';
+}
+
+@media screen and (max-width: 750px) {
+  .loggedInMainContainer {
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    padding: 2rem 0.5rem;
+  }
+
+  .loggedinLeftContainer {
     width: 100%;
-}
+    padding: 0.5em;
+  }
 
-.currentDateContainer, .userLoggedinContainer{
-    margin: 5px 0;
+  .loggedinRightContainer {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    padding: 0.5em;
+  }
+  .levelContainer {
+    flex-direction: column;
     padding: 5px;
-}
-
-.curDateText{
-    font: 400 1.2rem "Inter san-serif";
-    line-height: 28px;
-    color: #000;
-    margin: 10px 15px;
-}
-
-.loggedinLeftContainer{
-    width: 100%;
-    margin: 20px 25px;
-}
-
-.loggedinUserText{
-    padding: 10px 0;
-    margin: 5px 10px;
-    font:600 1.8rem "Inter san-serif";
-    line-height: 40px;
-    color: black;
-}
-
-.loggedInSubText{
-    margin: 5px 10px;
-    padding: 5px 0;
-    font: 300 1.1rem "Inter san-serif";
-    line-height: 1.5;
-    color: black;
-}
-
-.dashboardContainer{
-    background-color: rgba(255, 255, 255, 0.7);
-    width:95%;
+  }
+  .dashboardCollapse {
     margin: 10px auto;
-    padding: 1em;
-}
-
-.levelContainer{
-    padding: 0.5rem 1rem;
-    @include flex-row;
-    align-items: center;
-}
-
-.adminMenu{
-    @include flex-row;
-    align-items: center;
-}
-
-.dashboardSettingsContainer{
-    padding: 1rem;
-}
-
-.dashboardCollapse{
-    padding: 1rem;
-    border: 1px solid black;
-    color: black;
-    font: 500 18px "italic san-serif";
-    margin: 0.5em;
-}
-
-@media screen and (max-width:750px) {
-    .loggedInMainContainer{
-        flex-direction: column;
-        width: 90%;
-        margin: 0 auto;
-        padding: 2rem 0.5rem;
-    }
-
-    .loggedinLeftContainer{
-        width:100%;
-        padding: 0.5em;
-    }
-
-    .loggedinRightContainer{
-        width: 100%;
-        justify-content: center;
-        display: flex;
-        padding: 0.5em;
-    }
-    .levelContainer{
-        flex-direction: column;
-        padding: 5px;
-    }
-    .dashboardCollapse{
-        margin: 10px auto;
-        padding: 0.5em;
-    }
-    .mainPortalContainer{
-        flex-direction: column;
-    }
+    padding: 0.5em;
+  }
+  .mainPortalContainer {
+    flex-direction: column;
+  }
 }

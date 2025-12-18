@@ -11,6 +11,13 @@ import RemoveDirect from '../components/removeDirect.tsx';
         message: string;
     }
 
+    interface InputProps{
+        type: string,
+        message: string,
+        value: string, 
+        onChange: (e: React.ChangeEvent<HTMLInputElement>) => void 
+    }
+
     function ContactHeader(){
         return(
             <header className="contactHeaderContainer">
@@ -20,7 +27,7 @@ import RemoveDirect from '../components/removeDirect.tsx';
         )
     }
 
-    function GenerateInput({type, message,  value, onChange} : {type: string, message:string,   value: string; onChange: (e: React.ChangeEvent<HTMLInputElement>) => void}){
+    function GenerateInput({type, message,  value, onChange} : InputProps){
         const [placeholderText, setPlaceholderText] = useState("");
 
         useEffect(() => {

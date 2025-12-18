@@ -10,7 +10,6 @@ export default function Footer() {
         )
     }
 
-
     return(
         <footer className='footer'>
             <GetCurrentDate curDate={new Date().getFullYear()}/>

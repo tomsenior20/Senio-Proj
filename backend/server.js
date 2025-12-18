@@ -124,3 +124,16 @@ app.get("/api/getDashboardStart", (req, res) => {
         res.json(results);
     });
 });
+
+app.post("/api/registerView", (req, res) => {
+    const { statName, description, ticket_created } = req.body;
+    // Insert SQL Statement
+    const SQL = "INSERT INTO dashboardStats(statName, description, ticket_created) VALUES(?,?,?)"
+    con.query(SQL, [statName, description, ticket_created], (err, results) => {
+        if (err) {
+            console.error("Error Registering View:", err);
+            return res.status(500).json({ error: "Database error" });
+        }
+        res.status(200).json({ success: true, results });
+    });
+})
