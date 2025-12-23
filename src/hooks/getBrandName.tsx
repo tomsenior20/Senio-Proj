@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import APIGet from '../components/api/GetAPI'; // make sure path is correct
+import APIGet from '../api/GetAPI'; // make sure path is correct
 
 export default function GetBrandName() {
   const [brandName, setBrandName] = useState<string>('');

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import APIGet from '../components/api/GetAPI';
+import APIGet from '../api/GetAPI';
 
 export default function UseNavBrandName() {
   const [brandName, setBrandName] = useState('');

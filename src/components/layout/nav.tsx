@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import '../styling/nav.scss';
-import BrandName from '../hooks/useNavBrandName';
+import '../../styling/nav.scss';
+import BrandName from '../../hooks/useNavBrandName';
 import { useLocation } from 'react-router-dom';
 
 interface MobileListProps {

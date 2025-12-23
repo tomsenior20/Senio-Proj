@@ -1,5 +1,5 @@
-import '../styling/sidebar.scss';
-import AdminAction from './AdminAction';
+import '../../styling/sidebar.scss';
+import AdminAction from '../../Features/Portal/PortalActionButtons';
 interface UserLevel {
   levelOfUser: boolean;
 }

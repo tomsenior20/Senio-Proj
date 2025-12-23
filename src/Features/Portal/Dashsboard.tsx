@@ -1,6 +1,6 @@
 import { Children, ReactNode, useEffect, useState } from 'react';
-import '../styling/dashboard.scss';
-import APIGet from './api/GetAPI';
+import '../../styling/dashboard.scss';
+import APIGet from '../../api/GetAPI';
 
 interface DashboardValue {
   dashboardName: string;

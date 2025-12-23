@@ -1,11 +1,11 @@
 'use client';
 import { useNavigate } from 'react-router-dom';
 import '../styling/admin.scss';
-import FormInput from '../components/formcomp';
+import FormInput from '../components/form/formcomp';
 import { useEffect, useState } from 'react';
-import RemoveDirect from '../components/removeDirect';
-import ErrorAlert from '../components/messages/error';
-import GetAPI from '../components/api/api';
+import RemoveDirect from '../components/common/removeDirect';
+import ErrorAlert from '../components/common/error';
+import GetAPI from '../api/api';
 
 interface LogInformInputs {
   username: string;

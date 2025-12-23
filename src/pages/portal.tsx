@@ -1,12 +1,12 @@
 import { ReactNode, useEffect, useState } from 'react';
 import '../styling/portal.scss';
-import Footer from '../components/footer';
+import Footer from '../components/layout/footer';
 import { Navigate } from 'react-router-dom';
-import SideBar from '../components/sidebar';
-import DashboardStat from '../components/dahsboard';
-import DashboardCollapse from '../components/DashboardComponent';
-import GetAPI from '../components/api/api';
-import APIGet from '../components/api/GetAPI';
+import SideBar from '../components/layout/sidebar';
+import DashboardStat from '../Features/Portal/Dashsboard';
+import DashboardCollapse from '../Features/Portal/DashboardComponent';
+import GetAPI from '../api/api';
+import APIGet from '../api/GetAPI';
 
 interface LoggedIn {
   admin: boolean;
@@ -79,22 +79,22 @@ function GetContactRecords() {
       <table className='table-lg w-full border border-black'>
         <thead>
           <tr>
-            <th className='text-neutral text-lg border border-black !p-2'>
+            <th className='text-neutral text-lg border border-black p-2!'>
               Name
             </th>
-            <th className='text-neutral text-lg border border-black !p-2'>
+            <th className='text-neutral text-lg border border-black p-2!'>
               Message
             </th>
-            <th className='text-neutral text-lg border border-black !p-2'>
+            <th className='text-neutral text-lg border border-black p-2!'>
               Email
             </th>
-            <th className='text-neutral text-lg border border-black !p-2'>
+            <th className='text-neutral text-lg border border-black p-2!'>
               Product
             </th>
-            <th className='text-neutral text-lg border border-black !p-2'>
+            <th className='text-neutral text-lg border border-black p-2!'>
               Number
             </th>
-            <th className='text-neutral text-lg border border-black !p-2'>
+            <th className='text-neutral text-lg border border-black p-2!'>
               Date Logged
             </th>
           </tr>
@@ -102,22 +102,22 @@ function GetContactRecords() {
         <tbody>
           {contactRecords.map((item) => (
             <tr key={`${item.name}-${item.message}`}>
-              <td className='text-neutral text-md  border border-black !p-1'>
+              <td className='text-neutral text-md  border border-black p-1!'>
                 {item.name}
               </td>
-              <td className='text-neutral text-md border border-black !p-1'>
+              <td className='text-neutral text-md border border-black p-1!'>
                 {item.message}
               </td>
-              <td className='text-neutral text-md border border-black !p-1'>
+              <td className='text-neutral text-md border border-black p-1!'>
                 {item.email}
               </td>
-              <td className='text-neutral text-md border border-black !p-1'>
+              <td className='text-neutral text-md border border-black p-1!'>
                 {item.product}
               </td>
-              <td className='text-neutral text-md border border-black !p-1'>
+              <td className='text-neutral text-md border border-black p-1!'>
                 {item.number}
               </td>
-              <td className='text-neutral text-md border border-black !p-1'>
+              <td className='text-neutral text-md border border-black p-1!'>
                 {item.date_logged}
               </td>
             </tr>

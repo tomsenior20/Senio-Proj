@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import '../styling/contact.scss';
-import Footer from '../components/footer';
-import RemoveDirect from '../components/removeDirect';
-import GetAPI from '../components/api/api';
+import Footer from '../components/layout/footer';
+import RemoveDirect from '../components/common/removeDirect';
+import GetAPI from '../api/api';
 
 interface FormData {
   name: string;
