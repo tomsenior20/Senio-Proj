@@ -16,11 +16,11 @@ export default function DashboardCollapse({
   return (
     <div className='dashstatsContainer'>
       <details className='collapse border w-full dashboardCollapse' open={open}>
-        <summary className='collapse-title font-semibold'>{title}</summary>
-        <section className='dashboardMain' id={idProp}>
-          <div className='collapse-content text-sm' />
+        <summary className='collapse-title font-semibold m-2!'>{title}</summary>
+
+        <div className='collapse-content text-sm' id={idProp}>
           {children}
-        </section>
+        </div>
       </details>
     </div>
   );

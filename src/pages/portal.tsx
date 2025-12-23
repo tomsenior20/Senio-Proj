@@ -29,8 +29,6 @@ export default function Portal() {
             <DashboardCollapse title='Dashboard Stats' idProp='dashboardStats'>
               <DashboardStat dashboardName='Views' />
               <DashboardStat dashboardName='Ticket Logged' />
-              <DashboardStat dashboardName='Views' />
-              <DashboardStat dashboardName='Ticket Logged' />
             </DashboardCollapse>
             <DashboardCollapse
               title='Open Contact Records'
