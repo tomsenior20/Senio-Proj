@@ -7,7 +7,7 @@ on:
     branches: ['main']
 
 jobs:
-  lint-and-test:
+  set-up:
     runs-on: ubuntu-latest
     steps:
       # Checkout the repository
@@ -27,9 +27,13 @@ jobs:
       - name: Run lint
         run: npm run lint
 
+  test:
+    runs-on: unbunto-latest
+    needs: set-up
   build-docker:
     runs-on: ubuntu-latest
-    needs: lint-and-test # Ensure lint and tests pass first
+    # Ensure test runs first
+    needs: test
     steps:
       # Checkout the repository
       - uses: actions/checkout@v4
