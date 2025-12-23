@@ -1,101 +1,16 @@
 'use client';
 import { useNavigate } from 'react-router-dom';
 import '../styling/admin.scss';
-import FormInput from '../components/form/formcomp';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import RemoveDirect from '../components/common/removeDirect';
 import ErrorAlert from '../components/common/error';
 import GetAPI from '../api/api';
+import RegisterComponent from '../features/Admin/RegisterComponent';
+import GenerateLogInForm from '../features/Admin/GenerateLogInForm';
 
 interface LogInformInputs {
   username: string;
   password: string;
-}
-
-function RegisterComponent() {
-  return (
-    <div className='registerContainer'>
-      <div className='headerRegisterContainer'>
-        <h1 className='mainHeaderRegister'>
-          Process, Humans and tools meant to success together
-        </h1>
-        <h3 className='subHeaderRegister'>
-          Boost Productivity, without needing expensive resources through
-          utilising modern technology today.
-        </h3>
-      </div>
-
-      <div className='registerButtonContainer'>
-        <button className='registrationButton btn btn-outline'>
-          Register Here
-        </button>
-      </div>
-
-      <div className='techImageContainer'>
-        <img className='techimage' src='/public/Tech.png' alt='tech image' />
-      </div>
-    </div>
-  );
-}
-
-function GenerateLogInForm({
-  email,
-  setEmail,
-  password,
-  setPassword,
-  showPassword,
-  setShowPassword,
-  handleLogIn,
-}: any) {
-  return (
-    <div className='loginContainer'>
-      <form className='loginForm'>
-        <div className='mainFormContainer'>
-          <FormInput
-            type='Email'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            inputType='text'
-          />
-
-          <FormInput
-            type='Password'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            inputType={showPassword ? 'text' : 'password'}
-          />
-
-          <div className='showPasswordContainer'>
-            <input
-              type='checkbox'
-              id='passwordToggle'
-              className='toggleInput toggle toggle-primarary'
-              checked={showPassword}
-              onChange={() => setShowPassword((prev: boolean) => !prev)}
-            />
-            <label htmlFor='passwordToggle' className='toggleText'>
-              Show Password
-            </label>
-          </div>
-
-          <div className='signInButtonContainer'>
-            <button
-              className='btn btn-outline btn-primary signInButton'
-              onClick={handleLogIn}
-            >
-              Sign In
-            </button>
-          </div>
-        </div>
-        <hr />
-        <div className='forgotPassword'>
-          <a href='#' className='forgotPasswordText'>
-            Forgot Password
-          </a>
-        </div>
-      </form>
-    </div>
-  );
 }
 
 export default function Admin() {

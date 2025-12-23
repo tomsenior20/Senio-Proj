@@ -3,8 +3,8 @@ import BrandNameContainer from '../hooks/getBrandName';
 import Footer from '../components/layout/footer';
 import RemoveDirect from '../components/common/removeDirect';
 import { useEffect } from 'react';
-import RegisterView from '../Features/Home/RegisterView';
-import HomeFirstSection from '../Features/Home/HomeFirstSection';
+import RegisterView from '../features/Home/RegisterView';
+import HomeFirstSection from '../features/Home/HomeFirstSection';
 
 // Home Function
 export default function Home() {

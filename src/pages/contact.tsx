@@ -3,6 +3,8 @@ import '../styling/contact.scss';
 import Footer from '../components/layout/footer';
 import RemoveDirect from '../components/common/removeDirect';
 import GetAPI from '../api/api';
+import ContactHeader from '../features/Contact/ContactHeader';
+import GenerateInput from '../features/Contact/ContactInput';
 
 interface FormData {
   name: string;
@@ -10,65 +12,6 @@ interface FormData {
   email: string;
   product: string;
   message: string;
-}
-
-interface InputProps {
-  type: string;
-  message: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
-
-function ContactHeader() {
-  return (
-    <header className='contactHeaderContainer'>
-      <h1 className='contactHeader'>Contact</h1>
-      <h3 className='contactSubHeader'>
-        Please fill out the form below, we will be in contact as soon as
-        possible
-      </h3>
-    </header>
-  );
-}
-
-function GenerateInput({ type, message, value, onChange }: InputProps) {
-  const [placeholderText, setPlaceholderText] = useState('');
-
-  useEffect(() => {
-    switch (message) {
-      case 'Name':
-        setPlaceholderText('Name');
-        break;
-      case 'Number':
-        setPlaceholderText('Contact Number');
-        break;
-      case 'email':
-        setPlaceholderText('Email Address');
-        break;
-      case 'product':
-        setPlaceholderText('Product Name');
-        break;
-      default:
-        break;
-    }
-  }, []);
-
-  return (
-    <div className={type + 'container'}>
-      <label className='formLabel' htmlFor={type + 'input'}>
-        Enter {message}
-      </label>
-      <input
-        type={type}
-        className='formInput input neutral-content'
-        placeholder={'Enter ' + placeholderText}
-        id={type + 'input'}
-        name={message.toLowerCase()}
-        value={value}
-        onChange={onChange}
-      ></input>
-    </div>
-  );
 }
 
 function GenerateContactForm() {

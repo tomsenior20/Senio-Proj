@@ -3,8 +3,8 @@ import '../styling/portal.scss';
 import Footer from '../components/layout/footer';
 import { Navigate } from 'react-router-dom';
 import SideBar from '../components/layout/sidebar';
-import DashboardStat from '../Features/Portal/Dashsboard';
-import DashboardCollapse from '../Features/Portal/DashboardComponent';
+import DashboardStat from '../features/Portal/Dashsboard';
+import DashboardCollapse from '../features/Portal/DashboardComponent';
 import GetAPI from '../api/api';
 import APIGet from '../api/GetAPI';
 
