@@ -20,11 +20,10 @@ export default function Admin() {
   const [password, setPassword] = useState<string>('');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [showError, setShowError] = useState<boolean>(false);
-  // Use Navigate Import
-  const navigate = useNavigate();
 
   async function handleLogIn(e: any) {
     e.preventDefault();
+    const navigate = useNavigate();
 
     if ((!email && !password) || (email && !password) || (!email && password)) {
       setErrorMessage('Inputs are invalid');

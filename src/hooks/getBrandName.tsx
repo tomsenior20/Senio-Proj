@@ -14,6 +14,8 @@ export default function GetBrandName() {
 
       if (data && data.length > 0) {
         setBrandName(data[0].value);
+      } else {
+        return;
       }
     }
 
