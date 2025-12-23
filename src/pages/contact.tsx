@@ -37,10 +37,23 @@ function GenerateContactForm() {
         ...formData,
         time_logged: new Date().toISOString().slice(0, 19).replace('T', ' '),
       };
+
+      const acknowledgementPayload = {
+        name: formData.name,
+        email: formData.email,
+      };
+
       // Determine base url for fetch
-      const data = await GetAPI({ APIEndPoint: 'saveQuery', body: payload });
+      const [saveQueryRes, acknowledgeRes] = await Promise.all([
+        GetAPI({ APIEndPoint: 'saveQuery', body: payload }),
+        GetAPI({
+          APIEndPoint: 'AcknowledgementTable',
+          body: acknowledgementPayload,
+        }),
+      ]);
+
       // Fetch to post Query
-      if (data) {
+      if (saveQueryRes && acknowledgeRes) {
         console.log('Form Data Submitted', new Date().toUTCString());
       }
       // Reset Form Data

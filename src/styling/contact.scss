@@ -134,6 +134,20 @@
   -o-transition: box-shadow 0.5s, transform 0.5s;
 }
 
+.notAck {
+  background: rgba(255, 0, 0, 0.8);
+  width: 100%;
+  display: block;
+  padding: 10px;
+}
+
+.ack {
+  background-color: green;
+  width: 100%;
+  display: block;
+  padding: 10px;
+}
+
 .formInputTextArea:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   transform: scale(1.02);

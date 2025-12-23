@@ -75,7 +75,8 @@ app.post('/api/saveQuery', (req, res) => {
 });
 
 app.get('/api/getContactRecords', (req, res) => {
-  const sql = 'SELECT * FROM query_table';
+  const sql =
+    'SELECT qt.name,qt.number, qt.email, qt.product,qt.message,qt.date_logged, tat.acknowledged FROM query_table qt inner join ticketAcknowldgeTable tat on qt.name = tat.name and qt.email = tat.email';
   con.query(sql, (err, results) => {
     if (err) {
       console.error('Query error:', err);
@@ -115,6 +116,20 @@ app.post('/api/SubmitContactForm', (req, res) => {
     'Insert into contact_queries(name, number,email,product,message,message_sent)' +
     'values(?,?,?,?,?,?)';
   con.query(sql, [name], (err, results) => {
+    if (err) {
+      console.error('Query error:', err);
+      return res.status(500).json({ error: 'Database error' });
+    }
+    res.json(results);
+  });
+});
+
+app.post('/api/AcknowledgementTable', (req, res) => {
+  const { name, email } = req.body;
+  const sql =
+    'Insert into ticketAcknowldgeTable(name,email,acknowledged)' +
+    'values(?,?,?)';
+  con.query(sql, [name, email, false], (err, results) => {
     if (err) {
       console.error('Query error:', err);
       return res.status(500).json({ error: 'Database error' });
