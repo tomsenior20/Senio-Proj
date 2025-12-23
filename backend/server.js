@@ -57,17 +57,21 @@ app.get('/api/getAppSettings', (req, res) => {
 });
 
 app.post('/api/saveQuery', (req, res) => {
-  const { name, number, email, product, message } = req.body;
+  const { name, number, email, product, message, time_logged } = req.body;
   const sql = `
-    INSERT INTO query_table (name, number, email, product, message,date_logged)
-    VALUES (?, ?, ?, ?, ?, NOW())`;
-  con.query(sql, [name, number, email, product, message], (err, results) => {
-    if (err) {
-      console.error('Query error:', err);
-      return res.status(500).json({ error: 'Database error' });
+    INSERT INTO query_table (name, number, email, product, message, date_logged)
+    VALUES (?, ?, ?, ?, ?, ?)`;
+  con.query(
+    sql,
+    [name, number, email, product, message, time_logged],
+    (err, results) => {
+      if (err) {
+        console.error('Query error:', err);
+        return res.status(500).json({ error: 'Database error' });
+      }
+      res.json(results);
     }
-    res.json(results);
-  });
+  );
 });
 
 app.get('/api/getContactRecords', (req, res) => {

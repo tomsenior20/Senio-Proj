@@ -1,211 +1,212 @@
 @use './default' as *;
 
 .contactHeaderContainer {
-    min-height: 500px;
-    @include flex-column;
-    justify-content: center;
-    align-items: center;
+  min-height: 500px;
+  @include flex-column;
+  justify-content: center;
+  align-items: center;
 }
 
 .contactHeader {
-    font: 500 80px var(--defaultText);
-    line-height: 88px;
-    color: $headerDefaultColor;
-    letter-spacing: 0.013em;
+  font: 500 80px var(--defaultText);
+  line-height: 88px;
+  color: $headerDefaultColor;
+  letter-spacing: 0.013em;
 }
 
-.contactSubHeader{
-    font: 400 24px var(--defaultText);
-    max-width: 35ch;
-    line-height: 26px;
-    color: $headerDefaultColor;
-    letter-spacing: 0.013em;
-    text-align: center;
-    margin-top: 20px;
+.contactSubHeader {
+  font: 400 24px var(--defaultText);
+  max-width: 35ch;
+  line-height: 26px;
+  color: $headerDefaultColor;
+  letter-spacing: 0.013em;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .formContainer {
-    padding: 1em;
-    @include flex-column;
-    justify-content: center;
-    align-items: center;
-    margin: 3em;
-    border-radius: 8px ;
-    -webkit-border-radius: 8px ;
-    -moz-border-radius: 8px ;
-    -ms-border-radius: 8px ;
-    -o-border-radius: 8px ;
+  padding: 1em;
+  @include flex-column;
+  justify-content: center;
+  align-items: center;
+  margin: 3em;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
 }
 
 .contactFormContainer {
-    @include flex-column;
-    width: 50%;
-    padding: 1em;
-    margin: 2em;
-    min-height: 500px;
-    background: #eeeeee;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    border-radius: 12px !important;
-    -webkit-border-radius: 12px !important;
-    -moz-border-radius: 12px !important;
-    -ms-border-radius: 12px !important;
-    -o-border-radius: 12px !important;
+  @include flex-column;
+  width: 50%;
+  padding: 1em;
+  margin: 2em;
+  min-height: 500px;
+  background: #eeeeee;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-radius: 12px !important;
+  -webkit-border-radius: 12px !important;
+  -moz-border-radius: 12px !important;
+  -ms-border-radius: 12px !important;
+  -o-border-radius: 12px !important;
 }
 
 .inputContainer {
-    flex: 1;
-    padding: 1em;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 130px 130px auto;
-    gap: 20px;
+  flex: 1;
+  padding: 1em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 130px 130px auto;
+  gap: 20px;
 }
 
 .textcontainer,
 .numbercontainer,
 .emailcontainer {
-    @include flex-column;
-    width: 100%;
-    padding: 1em;
-    height: 130px;
+  @include flex-column;
+  width: 100%;
+  padding: 1em;
+  height: 130px;
 }
 
 .formLabel {
-    font: 500 20px var(--defaultText);
-    line-height: 25px;
-    color: #000;
-    margin: 5px 0;
-    padding: 8px;
+  font: 500 20px var(--defaultText);
+  line-height: 25px;
+  color: #000;
+  margin: 5px 0;
+  padding: 8px;
 }
 
 .formInput {
-    background-color: transparent;
-    border: 1px solid grey;
-    color: black;
-    font: 500 20px var(--defaultText);
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 12px;
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
-    -ms-border-radius: 12px;
-    -o-border-radius: 12px;
-    outline: none;
-    transition: box-shadow 0.4s, transform 0.4s;
-    -webkit-transition: box-shadow 0.4s, transform 0.4s;
-    -moz-transition: box-shadow 0.4s, transform 0.4s;
-    -ms-transition: box-shadow 0.4s, transform 0.4s;
-    -o-transition: box-shadow 0.4s, transform 0.4s;
+  background-color: transparent;
+  border: 1px solid grey;
+  color: black;
+  font: 500 20px var(--defaultText);
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+  outline: none;
+  transition: box-shadow 0.4s, transform 0.4s;
+  -webkit-transition: box-shadow 0.4s, transform 0.4s;
+  -moz-transition: box-shadow 0.4s, transform 0.4s;
+  -ms-transition: box-shadow 0.4s, transform 0.4s;
+  -o-transition: box-shadow 0.4s, transform 0.4s;
 }
 
 .formInput:hover {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transform: scale(1.02);
-    -webkit-transform: scale(1.02);
-    -moz-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-    -o-transform: scale(1.02);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transform: scale(1.02);
+  -webkit-transform: scale(1.02);
+  -moz-transform: scale(1.02);
+  -ms-transform: scale(1.02);
+  -o-transform: scale(1.02);
 }
 
 .textAreacontainer {
-    width: 100%;
-    padding: 1em;
-    grid-column: 1 / -1;
+  width: 100%;
+  padding: 1em;
+  grid-column: 1 / -1;
 }
 
 .formInputTextArea {
-    background-color: transparent;
-    padding: 10px;
-    margin: 15px 0;
-    height: 100px;
-    width: 100%;
-    outline: none;
-    border: 1px solid grey;
-    border-radius: 12px;
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
-    -ms-border-radius: 12px;
-    -o-border-radius: 12px;
-    transition: box-shadow 0.5s, transform 0.5s;
-    -webkit-transition: box-shadow 0.5s, transform 0.5s;
-    -moz-transition: box-shadow 0.5s, transform 0.5s;
-    -ms-transition: box-shadow 0.5s, transform 0.5s;
-    -o-transition: box-shadow 0.5s, transform 0.5s;
+  background-color: transparent;
+  padding: 10px;
+  margin: 15px 0;
+  height: 100px;
+  width: 100%;
+  outline: none;
+  color: black;
+  border: 1px solid grey;
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+  transition: box-shadow 0.5s, transform 0.5s;
+  -webkit-transition: box-shadow 0.5s, transform 0.5s;
+  -moz-transition: box-shadow 0.5s, transform 0.5s;
+  -ms-transition: box-shadow 0.5s, transform 0.5s;
+  -o-transition: box-shadow 0.5s, transform 0.5s;
 }
 
 .formInputTextArea:hover {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transform: scale(1.02);
-    -webkit-transform: scale(1.02);
-    -moz-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-    -o-transform: scale(1.02);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transform: scale(1.02);
+  -webkit-transform: scale(1.02);
+  -moz-transform: scale(1.02);
+  -ms-transform: scale(1.02);
+  -o-transform: scale(1.02);
 }
 
 .formButtonContainer {
-    min-height: 30px;
-    margin: 10px 0;
-    padding: 1em;
-    display: flex;
-    justify-content: center;
+  min-height: 30px;
+  margin: 10px 0;
+  padding: 1em;
+  display: flex;
+  justify-content: center;
 }
 
 .formButtonContainer button {
-    position: relative;
-    padding: 4px;
-    width: 180px;
-    display: flex;
-    font: 500 22px var(--defaultText);
-    line-height: 28px;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    color: black;
+  position: relative;
+  padding: 4px;
+  width: 180px;
+  display: flex;
+  font: 500 22px var(--defaultText);
+  line-height: 28px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  color: black;
 }
 
 .formButtonContainer button:hover {
-    transform: scale(1.02);
-    -webkit-transform: scale(1.02);
-    -moz-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-    -o-transform: scale(1.02);
-    border: 1px solid rgb(146, 144, 144);
-    cursor: pointer;
-    box-shadow: 1px 2px 2px #5C5CFF;
+  transform: scale(1.02);
+  -webkit-transform: scale(1.02);
+  -moz-transform: scale(1.02);
+  -ms-transform: scale(1.02);
+  -o-transform: scale(1.02);
+  border: 1px solid rgb(146, 144, 144);
+  cursor: pointer;
+  box-shadow: 1px 2px 2px #5c5cff;
 }
 
-@media screen and (max-width:850px) {
-    .contactFormContainer {
-        width: 90%;
-    }
+@media screen and (max-width: 850px) {
+  .contactFormContainer {
+    width: 90%;
+  }
 
-    .formContainer {
-        width: 100%;
-        margin: 20px 0;
-    }
+  .formContainer {
+    width: 100%;
+    margin: 20px 0;
+  }
 
-    .contactFormContainer {
-        margin: 1em;
-    }
+  .contactFormContainer {
+    margin: 1em;
+  }
 
-    .formInput{
-        padding: 5px;
-    }
+  .formInput {
+    padding: 5px;
+  }
 
-    .formLabel{
-        padding: 5px;
-        font-size: 18px;
-    }
+  .formLabel {
+    padding: 5px;
+    font-size: 18px;
+  }
 
-    .inputContainer {
-        grid-template-columns: 1fr;
-        gap: 1px;
-        padding: 0.2em;
-    }
-    .textcontainer,
-    .numbercontainer,
-    .emailcontainer{
-        height: 100px;
-        padding: 0.5em;
-    }
+  .inputContainer {
+    grid-template-columns: 1fr;
+    gap: 1px;
+    padding: 0.2em;
+  }
+  .textcontainer,
+  .numbercontainer,
+  .emailcontainer {
+    height: 100px;
+    padding: 0.5em;
+  }
 }

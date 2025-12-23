@@ -33,8 +33,12 @@ function GenerateContactForm() {
     e.preventDefault();
 
     async function callAPI() {
+      const payload = {
+        ...formData,
+        time_logged: new Date().toISOString().slice(0, 19).replace('T', ' '),
+      };
       // Determine base url for fetch
-      const data = await GetAPI({ APIEndPoint: 'saveQuery', body: formData });
+      const data = await GetAPI({ APIEndPoint: 'saveQuery', body: payload });
       // Fetch to post Query
       if (data) {
         console.log('Form Data Submitted', new Date().toUTCString());

@@ -72,7 +72,7 @@ export default function GetContactRecords() {
                 {item.number}
               </td>
               <td className='text-neutral text-md border border-black p-1!'>
-                {item.date_logged}
+                {new Date(item.date_logged).toLocaleString('en-gb')}
               </td>
             </tr>
           ))}
