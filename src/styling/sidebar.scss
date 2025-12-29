@@ -1,110 +1,120 @@
 @use './default' as *;
 
-.sideBarContainer{
-    width: 20%;
-    border: 1px solid rgba(173, 172, 172, 0.4);
-    display: flex;
-    flex-direction: column;
+.sideBarContainer {
+  width: 20%;
+  border: 1px solid rgba(173, 172, 172, 0.4);
+  display: flex;
+  flex-direction: column;
 }
 
-.levelContainer{
-    @include flex-row;
-    justify-content: center;
-    align-items: center;
+.levelContainer {
+  @include flex-row;
+  justify-content: center;
+  align-items: center;
 }
 
-.leveluserText,.levelText {
-    font-weight: 500;
-    font-size: 1.3rem;
-    line-height: 1.5;
-    font-family: "Poppins", sans-serif;
-    color: #000;
-    padding: 0.2rem;
-    margin-top: 30px;
-    text-align: center;
+.leveluserText,
+.levelText {
+  font-weight: 500;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  font-family: 'Poppins', sans-serif;
+  color: #000;
+  padding: 0.2rem;
+  margin-top: 15px;
+  text-align: center;
 }
 
-.adminAccessContainer{
-    @include flex-row;
-    padding: 0.5rem 1rem;
-    margin: 10px 0px;
-    flex: 1;
+.adminAccessContainer {
+  @include flex-row;
+  padding: 0.5rem 1rem;
+  margin: 10px 0px;
+  flex: 1;
 }
 
-.adminAccessContainer ul{
-    @include flex-column;
-    width: 100%;
+.adminAccessContainer ul {
+  @include flex-column;
+  width: 100%;
+}
+
+.sideBarContainer.closed {
+  width: 5%;
+}
+
+.levelContainer.closed,
+.adminAccessContainer.closed {
+  display: none !important;
 }
 
 .adminAccessContainer li {
-    width: 100%;
-    display: flex;
-    position: relative;
-    justify-content: center;
-    margin: 5px 0;
-    list-style: none;
-    padding: 10px;
-    transition: border 0.2s ease,transform 0.2s ease;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  margin: 5px 0;
+  list-style: none;
+  padding: 5px;
+  transition: border 0.2s ease, transform 0.2s ease;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
 .adminAccessContainer li:hover {
-    transform: scale(1.02);
-    cursor: pointer;
+  transform: scale(1.02);
+  cursor: pointer;
 }
 
 .adminAccessContainer li a {
-    font:300 0.9rem "Poppins", sans-serif;
-    line-height: 25px;
-    color: white;
-    text-decoration: none;
+  font: 300 0.9rem 'Poppins', sans-serif;
+  line-height: 25px;
+  color: white;
+  text-decoration: none;
+  width: 100%;
+  padding: 0 1rem;
+  display: block;
+  text-align: center;
+}
+
+.adminIcon {
+  margin: 5px;
+  height: 20px;
+  width: 20px;
+  display: none;
+}
+
+@media screen and (max-width: 750px) {
+  .sideBarContainer {
     width: 100%;
-    padding: 0 1rem;
+  }
+  .adminAccessContainer {
+    padding: 5px;
+  }
+
+  .adminAccessContainer ul {
+    flex-direction: row;
+  }
+
+  .adminAccessContainer li {
+    margin: 0;
+    width: 50%;
+    padding: 10px 5px;
+  }
+
+  .adminAccessContainer button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .adminIcon {
     display: block;
-    text-align: center;
-}
+    left: 0;
+  }
 
-.adminIcon{
-    margin: 5px;
-    height:20px;
-    width: 20px;
+  .buttonText {
     display: none;
-}
-
-@media screen and (max-width:750px) {
-    .sideBarContainer{
-        width: 100%;
-    }
-    .adminAccessContainer{
-        padding: 5px;
-    }
-
-    .adminAccessContainer ul {
-        flex-direction: row;
-    }
-
-    .adminAccessContainer li {
-        margin: 0;
-        width: 50%;
-        padding: 10px 5px;
-    }
-
-    .adminAccessContainer button{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .adminIcon{
-        display: block;
-        left: 0;
-    }
-
-    .buttonText{
-        display: none;
-    }
+  }
 }
