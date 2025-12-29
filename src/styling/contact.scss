@@ -1,27 +1,31 @@
 @use './default' as *;
 
 .contactHeaderContainer {
-  min-height: 500px;
+  height: calc(100vh - 80px);
   @include flex-column;
   justify-content: center;
   align-items: center;
 }
 
 .contactHeader {
-  font: 500 80px var(--defaultText);
+  font: 600 90px var(--defaultText);
   line-height: 88px;
   color: $headerDefaultColor;
   letter-spacing: 0.013em;
+  animation: fadein 2s ease-in-out;
+  -webkit-animation: fadein 2s ease-in-out;
 }
 
 .contactSubHeader {
-  font: 400 24px var(--defaultText);
+  font: 400 22px var(--defaultText);
   max-width: 35ch;
-  line-height: 26px;
+  line-height: 30px;
   color: $headerDefaultColor;
   letter-spacing: 0.013em;
   text-align: center;
   margin-top: 20px;
+  animation: fadein 2s ease-in-out;
+  -webkit-animation: fadein 2s ease-in-out;
 }
 
 .formContainer {
@@ -43,8 +47,8 @@
   padding: 1em;
   margin: 2em;
   min-height: 500px;
-  background: #eeeeee;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  background: rgba(226, 225, 225, 0.45);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   border-radius: 12px !important;
   -webkit-border-radius: 12px !important;
   -moz-border-radius: 12px !important;
@@ -58,7 +62,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 130px 130px auto;
-  gap: 20px;
+  gap: 5px;
 }
 
 .textcontainer,
@@ -67,7 +71,6 @@
   @include flex-column;
   width: 100%;
   padding: 1em;
-  height: 130px;
 }
 
 .formLabel {
@@ -84,12 +87,12 @@
   color: black;
   font: 500 20px var(--defaultText);
   padding: 10px;
-  margin: 10px 0;
-  border-radius: 12px;
-  -webkit-border-radius: 12px;
-  -moz-border-radius: 12px;
-  -ms-border-radius: 12px;
-  -o-border-radius: 12px;
+  margin: 5px 0;
+  border-radius: 5px !important;
+  -webkit-border-radius: 5px !important;
+  -moz-border-radius: 5px !important;
+  -ms-border-radius: 5px !important;
+  -o-border-radius: 5px !important;
   outline: none;
   transition: box-shadow 0.4s, transform 0.4s;
   -webkit-transition: box-shadow 0.4s, transform 0.4s;
@@ -222,5 +225,15 @@
   .emailcontainer {
     height: 100px;
     padding: 0.5em;
+  }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }

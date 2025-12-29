@@ -30,6 +30,9 @@ export default function GetBrandName() {
           Where the door to centralised innovation occurs, exploring better ways
           to control your personal development better
         </p>
+        <button className='btn btn-primary mt-6! px-6! py-3! GetStartedbutton'>
+          Get Started
+        </button>
       </div>
     </header>
   );

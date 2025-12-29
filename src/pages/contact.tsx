@@ -111,10 +111,7 @@ function GenerateContactForm() {
           </div>
         </div>
         <div className='formButtonContainer'>
-          <button
-            type='submit'
-            className='contactFormButton btn btn-outline btn-primary'
-          >
+          <button type='submit' className='contactFormButton btn btn-primary'>
             Submit Form
           </button>
         </div>

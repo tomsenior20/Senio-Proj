@@ -1,12 +1,12 @@
 $default_line_height: 1.5;
-$headerDefaultColor: #fff;
+$headerDefaultColor: #000;
 
 @mixin flex-column {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 @mixin flex-row {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
