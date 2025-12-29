@@ -86,6 +86,19 @@ app.get('/api/getContactRecords', (req, res) => {
   });
 });
 
+app.post('/api/acknowledgeDocument', (req, res) => {
+  const { recordName, recordEmail } = req.body;
+  const sql =
+    'update ticketAcknowldgeTable set acknowledged = 1 where name = ? and email = ?';
+  con.query(sql, [recordName, recordEmail], (err, results) => {
+    if (err) {
+      console.error('Query error:', err);
+      return res.status(500).json({ error: 'Database error' });
+    }
+    res.json(results);
+  });
+});
+
 app.post('/api/CheckSignon', (req, res) => {
   const { email, password } = req.body;
   const sql = 'SELECT * FROM signon where email = ? and password = ?';

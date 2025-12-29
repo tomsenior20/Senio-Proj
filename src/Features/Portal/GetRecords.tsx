@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import APIGet from '../../api/GetAPI';
+import GetAPI from '../../api/api';
 
 interface ContactRecordProps {
   email: string;
@@ -12,6 +13,32 @@ interface ContactRecordProps {
 }
 
 export default function GetContactRecords() {
+  function actionTicket(record: ContactRecordProps) {
+    if (!record) {
+      return;
+    }
+
+    async function AcknowledgeTicket() {
+      await GetAPI({
+        APIEndPoint: 'acknowledgeDocument',
+        body: {
+          name: record.name,
+          email: record.email,
+        },
+      });
+
+      setContactRecords((prev) =>
+        prev.map((item) =>
+          item.name === record.name && item.email === record.email
+            ? { ...item, acknowledged: 1 }
+            : item
+        )
+      );
+    }
+
+    AcknowledgeTicket();
+  }
+
   // Table Colimn Names
   const ColumnNames = [
     'Name',
@@ -20,7 +47,8 @@ export default function GetContactRecords() {
     'Product',
     'Number',
     'Date Logged',
-    'Ticket Actioned',
+    'Actioned',
+    'Action',
   ];
 
   const [contactRecords, setContactRecords] = useState<ContactRecordProps[]>(
@@ -56,33 +84,52 @@ export default function GetContactRecords() {
           </tr>
         </thead>
         <tbody className='bg-gray-100'>
-          {contactRecords.map((item) => (
-            <tr key={`${item.name}-${item.message}`}>
-              <td className='text-neutral text-md  border border-black p-1!'>
-                {item.name}
-              </td>
-              <td className='text-neutral text-md border border-black p-1!'>
-                {item.message}
-              </td>
-              <td className='text-neutral text-md border border-black p-1!'>
-                {item.email}
-              </td>
-              <td className='text-neutral text-md border border-black p-1!'>
-                {item.product}
-              </td>
-              <td className='text-neutral text-md border border-black p-1!'>
-                {item.number}
-              </td>
-              <td className='text-neutral text-md border border-black p-1!'>
-                {new Date(item.date_logged).toLocaleString('en-gb')}
-              </td>
-              <td className='text-neutral text-md border border-black p-1!'>
-                <span className={item.acknowledged === 0 ? 'notAck' : 'ack'}>
-                  {item.acknowledged === 0 ? 'False' : 'True'}
-                </span>
-              </td>
-            </tr>
-          ))}
+          {contactRecords.length > 0 ? (
+            contactRecords.map((item) => (
+              <tr key={`${item.name}-${item.message}`}>
+                <td className='text-neutral text-md  border border-black p-1!'>
+                  {item.name}
+                </td>
+                <td className='text-neutral text-md border border-black p-1!'>
+                  {item.message}
+                </td>
+                <td className='text-neutral text-md border border-black p-1!'>
+                  {item.email}
+                </td>
+                <td className='text-neutral text-md border border-black p-1!'>
+                  {item.product}
+                </td>
+                <td className='text-neutral text-md border border-black p-1!'>
+                  {item.number}
+                </td>
+                <td className='text-neutral text-md border border-black p-1!'>
+                  {new Date(item.date_logged).toLocaleString('en-gb')}
+                </td>
+                <td className='text-neutral text-md border border-black p-1!'>
+                  <span
+                    className={item.acknowledged === 0 ? 'notAck' : 'ack'}
+                  ></span>
+                </td>
+                <td className='text-neutral text-md border border-black p-3!'>
+                  {item.acknowledged === 0 ? (
+                    <button
+                      className='btn btn-primary w-full p-2!'
+                      type='submit'
+                      onClick={() => {
+                        actionTicket(item);
+                      }}
+                    >
+                      Action
+                    </button>
+                  ) : (
+                    <> No Action Required</>
+                  )}
+                </td>
+              </tr>
+            ))
+          ) : (
+            <>No Records</>
+          )}
         </tbody>
       </table>
     </div>
