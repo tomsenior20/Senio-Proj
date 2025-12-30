@@ -36,17 +36,21 @@ export default function GenerateInput({
 
   return (
     <div className={type + 'container'}>
-      <label className='formLabel' htmlFor={type + 'input'}>
+      <label
+        className='formLabel'
+        htmlFor={type + 'input' + message.substring(0, 4)}
+      >
         Enter {message}
       </label>
       <input
         type={type}
         className='formInput input neutral-content'
         placeholder={'Enter ' + placeholderText}
-        id={type + 'input'}
+        id={type + 'input' + message.substring(0, 4)}
         name={message.toLowerCase()}
         value={value}
         onChange={onChange}
+        autoComplete='false'
       ></input>
     </div>
   );

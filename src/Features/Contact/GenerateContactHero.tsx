@@ -42,18 +42,20 @@ export default function GenerateContactHero() {
       </div>
       <div className='contactLinkContainer'>
         <table className='table w-full p-2!'>
-          {contactLinks.map((contactLink) => (
-            <tr className='contactLinksList' key={contactLink.parameter}>
-              <td className='flex w-full'>
-                <p className='contactLinksMethod' aria-label='contactLink'>
-                  {replaceContactAlias(contactLink.name)} -
-                </p>
-                <p className='contactLinks' aria-label='contact value'>
-                  {contactLink.value}
-                </p>
-              </td>
-            </tr>
-          ))}
+          <tbody>
+            {contactLinks.map((contactLink) => (
+              <tr className='contactLinksList' key={contactLink.name}>
+                <td className='flex w-full'>
+                  <p className='contactLinksMethod' aria-label='contactLink'>
+                    {replaceContactAlias(contactLink.name)} -
+                  </p>
+                  <p className='contactLinks' aria-label='contact value'>
+                    {contactLink.value}
+                  </p>
+                </td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </div>
     </div>
