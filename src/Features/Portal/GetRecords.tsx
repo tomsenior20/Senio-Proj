@@ -85,50 +85,64 @@ export default function GetContactRecords() {
         </thead>
         <tbody className='bg-gray-100'>
           {contactRecords.length > 0 ? (
-            contactRecords.map((item) => (
-              <tr key={`${item.name}-${item.message}`}>
-                <td className='text-neutral text-md  border border-black p-1!'>
-                  {item.name}
-                </td>
-                <td className='text-neutral text-md border border-black p-1!'>
-                  {item.message}
-                </td>
-                <td className='text-neutral text-md border border-black p-1!'>
-                  {item.email}
-                </td>
-                <td className='text-neutral text-md border border-black p-1!'>
-                  {item.product}
-                </td>
-                <td className='text-neutral text-md border border-black p-1!'>
-                  {item.number}
-                </td>
-                <td className='text-neutral text-md border border-black p-1!'>
-                  {new Date(item.date_logged).toLocaleString('en-gb')}
-                </td>
-                <td className='text-neutral text-md border border-black p-1!'>
-                  <span
-                    className={item.acknowledged === 0 ? 'notAck' : 'ack'}
-                  ></span>
-                </td>
-                <td className='text-neutral text-md border border-black p-3!'>
-                  {item.acknowledged === 0 ? (
-                    <button
-                      className='btn btn-primary w-full p-2!'
-                      type='submit'
-                      onClick={() => {
-                        actionTicket(item);
-                      }}
-                    >
-                      Action
-                    </button>
-                  ) : (
-                    <> No Action Required</>
-                  )}
-                </td>
-              </tr>
-            ))
+            contactRecords
+              .filter(
+                (item) =>
+                  item !== null &&
+                  item.name !== '' &&
+                  item.message !== '' &&
+                  item.email !== '' &&
+                  item.product !== '' &&
+                  item.number !== null
+              )
+              .map((item) => (
+                <tr key={`${item.name}-${item.message}`}>
+                  <td className='text-neutral text-md  border border-black p-1!'>
+                    {item.name}
+                  </td>
+                  <td className='text-neutral text-md border border-black p-1!'>
+                    {item.message}
+                  </td>
+                  <td className='text-neutral text-md border border-black p-1!'>
+                    {item.email}
+                  </td>
+                  <td className='text-neutral text-md border border-black p-1!'>
+                    {item.product}
+                  </td>
+                  <td className='text-neutral text-md border border-black p-1!'>
+                    {item.number}
+                  </td>
+                  <td className='text-neutral text-md border border-black p-1!'>
+                    {new Date(item.date_logged).toLocaleString('en-gb')}
+                  </td>
+                  <td className='text-neutral text-md border border-black p-1!'>
+                    <span
+                      className={item.acknowledged === 0 ? 'notAck' : 'ack'}
+                    ></span>
+                  </td>
+                  <td className='text-neutral text-md border border-black p-3!'>
+                    {item.acknowledged === 0 ? (
+                      <button
+                        className='btn btn-primary w-full p-2!'
+                        type='submit'
+                        onClick={() => {
+                          actionTicket(item);
+                        }}
+                      >
+                        Action
+                      </button>
+                    ) : (
+                      <> No Action Required</>
+                    )}
+                  </td>
+                </tr>
+              ))
           ) : (
-            <>No Records</>
+            <tr>
+              <td colSpan={ColumnNames.length} className='text-center p-4'>
+                No Records
+              </td>
+            </tr>
           )}
         </tbody>
       </table>
