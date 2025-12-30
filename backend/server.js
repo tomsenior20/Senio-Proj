@@ -56,6 +56,18 @@ app.get('/api/getAppSettings', (req, res) => {
   });
 });
 
+app.get('/api/getContactDetails', (req, res) => {
+  const Contact = req.query.name;
+  const sql = 'SELECT * FROM app_settings where name like ?';
+  con.query(sql, [`${Contact}%`], (err, results) => {
+    if (err) {
+      console.error('Query error:', err);
+      return res.status(500).json({ error: 'Database error' });
+    }
+    res.json(results);
+  });
+});
+
 app.post('/api/saveQuery', (req, res) => {
   const { name, number, email, product, message, time_logged } = req.body;
   const sql = `

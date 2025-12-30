@@ -5,6 +5,7 @@ import RemoveDirect from '../components/common/removeDirect';
 import GetAPI from '../api/api';
 import ContactHeader from '../features/Contact/ContactHeader';
 import GenerateInput from '../features/Contact/ContactInput';
+import GenerateContactHero from '../features/Contact/GenerateContactHero';
 
 interface FormData {
   name: string;
@@ -71,6 +72,7 @@ function GenerateContactForm() {
 
   return (
     <div className='formContainer'>
+      <GenerateContactHero />
       <form onSubmit={HandleLogin} className='contactFormContainer'>
         <div className='inputContainer'>
           <GenerateInput

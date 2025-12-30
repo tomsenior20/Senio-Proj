@@ -30,7 +30,7 @@
 
 .formContainer {
   padding: 1em;
-  @include flex-column;
+  @include flex-row;
   justify-content: center;
   align-items: center;
   margin: 3em;
@@ -44,6 +44,7 @@
 .contactFormContainer {
   @include flex-column;
   width: 50%;
+  height: 100%;
   padding: 1em;
   margin: 2em;
   min-height: 500px;
@@ -54,14 +55,16 @@
   -moz-border-radius: 12px !important;
   -ms-border-radius: 12px !important;
   -o-border-radius: 12px !important;
+  animation: fadein 2s ease-in-out;
+  -webkit-animation: fadein 2s ease-in-out;
 }
 
 .inputContainer {
   flex: 1;
-  padding: 1em;
+  padding: 0.5em;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 130px 130px auto;
+  grid-template-rows: 110px 110px auto;
   gap: 5px;
 }
 
@@ -70,7 +73,7 @@
 .emailcontainer {
   @include flex-column;
   width: 100%;
-  padding: 1em;
+  padding: 0.5rem;
 }
 
 .formLabel {
@@ -83,7 +86,7 @@
 
 .formInput {
   background-color: transparent;
-  border: 1px solid grey;
+  border: 1px solid lightgray;
   color: black;
   font: 500 20px var(--defaultText);
   padding: 10px;
@@ -112,7 +115,7 @@
 
 .textAreacontainer {
   width: 100%;
-  padding: 1em;
+  margin: 10px;
   grid-column: 1 / -1;
 }
 
@@ -124,7 +127,7 @@
   width: 100%;
   outline: none;
   color: black;
-  border: 1px solid grey;
+  border: 1px solid lightgray;
   border-radius: 12px;
   -webkit-border-radius: 12px;
   -moz-border-radius: 12px;
@@ -137,13 +140,13 @@
   -o-transition: box-shadow 0.5s, transform 0.5s;
 }
 
+// Record Ack Colours
 .notAck {
   background: rgba(255, 0, 0, 0.8);
   width: 100%;
   display: block;
   padding: 10px;
 }
-
 .ack {
   background-color: green;
   width: 100%;
@@ -161,9 +164,8 @@
 }
 
 .formButtonContainer {
-  min-height: 30px;
-  margin: 10px 0;
-  padding: 1em;
+  margin: 5px 5px 10px 5px;
+  padding: 5px;
   display: flex;
   justify-content: center;
 }
@@ -192,6 +194,60 @@
   box-shadow: 1px 2px 2px #5c5cff;
 }
 
+.helpContainer {
+  width: 50%;
+  background: rgba(226, 225, 225, 0.45);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  animation: fadein 2s ease-in-out;
+  -webkit-animation: fadein 2s ease-in-out;
+}
+
+.helpContentContainer {
+  flex: 1;
+  padding: 30px;
+}
+
+.helpHeader {
+  font: 600 40px var(--defaultText);
+  margin: 20px 0;
+  padding: 10px 0;
+  color: black;
+}
+
+.helpText {
+  font: 300 20px var(--defaultText);
+  line-height: var(--defaultLineHeight);
+  color: black;
+}
+
+.contactLinkContainer {
+  padding: 20px;
+  height: 300px;
+}
+.contactLinksList {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.contactLinksMethod {
+  font: 400 18px var(--defaultText);
+  line-height: var(--defaultLineHeight);
+  color: black;
+  margin: 5px;
+  width: 20%;
+}
+.contactLinks {
+  width: 80%;
+  font: 400 18px var(--defaultText);
+  line-height: var(--defaultLineHeight);
+  color: black;
+  margin: 5px;
+}
+// Media Queries
 @media screen and (max-width: 850px) {
   .contactFormContainer {
     width: 90%;

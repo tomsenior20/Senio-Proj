@@ -1,7 +1,7 @@
 export default function ContactHeader() {
   const PageHeaderText: string = 'Contact';
   const PageSubText: string =
-    'Please fill out the form below, we will be in contact as soon as possible';
+    'Please fill out the form below, well contact you as soon as possible';
 
   return (
     <header className='contactHeaderContainer'>
