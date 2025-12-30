@@ -4,7 +4,7 @@ export default function Footer() {
   function GetCurrentDate({ curDate }: { curDate: number }) {
     return (
       <div className='curDateContainer'>
-        <p className='curDateText'>&copy;{curDate}</p>
+        <p className='curDateTextFooter'>&copy;{curDate}</p>
       </div>
     );
   }

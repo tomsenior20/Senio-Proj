@@ -17,9 +17,9 @@
 .levelText {
   font-weight: 500;
   font-size: 1.3rem;
-  line-height: 1.5;
+  line-height: $default_line_height !important;
   font-family: 'Poppins', sans-serif;
-  color: #000;
+  color: $defaultColor;
   padding: 0.2rem;
   margin-top: 15px;
   text-align: center;

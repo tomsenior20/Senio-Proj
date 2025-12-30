@@ -9,11 +9,6 @@
   box-sizing: border-box;
 }
 
-:root {
-  --defaultText: "san-serif";
-  --defaultLineHeight: 1.5;
-}
-
 html,
 body,
 #root {

@@ -1,5 +1,7 @@
 $default_line_height: 1.5;
 $headerDefaultColor: #000;
+$defaultText: 'san-serif';
+$defaultColor: #000;
 
 @mixin flex-column {
   display: flex;

@@ -1,22 +1,22 @@
 @use './default' as *;
 
 footer {
-    margin-top: 10px;
-    height: 50px;
-    background-color: #F7F7F7;
-    width: 100%;
-    padding: 1em;
-    @include flex-row;
-    align-items: center;
-    justify-content: end;
+  margin-top: 10px;
+  height: 50px;
+  background-color: #f7f7f7;
+  width: 100%;
+  padding: 1em;
+  @include flex-row;
+  align-items: center;
+  justify-content: end;
 }
 
 .curDateContainer {
-    margin: 1em 2em;
+  margin: 1em 2em;
 }
 
-.curDateText {
-    font: 400 20px var(--defaultText);
-    line-height: $default_line_height;
-    color: black;
+.curDateTextFooter {
+  font: 400 20px $defaultText;
+  line-height: $default_line_height;
+  color: $defaultColor;
 }

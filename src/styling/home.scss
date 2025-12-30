@@ -23,9 +23,7 @@ header {
 }
 
 .headerTitle {
-  font-family: var(--defaultText);
-  font-weight: 600;
-  font-size: 90px;
+  font: 600 90px $defaultText;
   letter-spacing: 0.05em;
   line-height: 90px;
   margin: 0.5rem 0;
@@ -38,7 +36,7 @@ header {
 .subHeaderTitle {
   width: 100%;
   max-width: 50ch;
-  font: 500 22px var(--defaultText);
+  font: 500 22px $defaultText;
   white-space: normal;
   letter-spacing: 0.013em;
   line-height: 30px;
@@ -96,17 +94,17 @@ header {
 }
 
 .offeringHeader {
-  font: 600 23px var(--defaultText);
+  font: 600 23px $defaultText;
   line-height: 1.5;
   margin: 0.5em 1em;
-  color: black;
+  color: $defaultColor;
 }
 
 .offeringSubHeader {
-  font: 500 18px var(--defaultText);
+  font: 500 18px $defaultText;
   line-height: 1.5;
   margin: 0.5em 1em;
-  color: black;
+  color: $defaultColor;
 }
 
 .discoverMoreButton {

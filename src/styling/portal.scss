@@ -52,7 +52,7 @@
   margin: 5px 10px;
   font: 600 1.8rem 'Inter san-serif';
   line-height: 40px;
-  color: black;
+  color: $defaultColor;
 }
 
 .loggedInSubText {
@@ -60,7 +60,7 @@
   padding: 5px 0;
   font: 300 1.1rem 'Inter san-serif';
   line-height: 1.5;
-  color: black;
+  color: $defaultColor;
 }
 
 .dashboardContainer {
@@ -99,7 +99,7 @@
 .dashboardCollapse {
   padding: 1rem;
   border: 1px solid rgba(167, 167, 167, 0.5);
-  color: black;
+  color: $defaultColor;
   font: 500 18px 'italic san-serif';
 }
 

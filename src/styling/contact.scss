@@ -8,7 +8,7 @@
 }
 
 .contactHeader {
-  font: 600 90px var(--defaultText);
+  font: 600 90px $defaultText;
   line-height: 88px;
   color: $headerDefaultColor;
   letter-spacing: 0.013em;
@@ -17,7 +17,7 @@
 }
 
 .contactSubHeader {
-  font: 400 22px var(--defaultText);
+  font: 400 22px $defaultText;
   max-width: 35ch;
   line-height: 30px;
   color: $headerDefaultColor;
@@ -29,11 +29,12 @@
 }
 
 .formContainer {
+  width: 90%;
   padding: 1em;
   @include flex-row;
   justify-content: center;
   align-items: center;
-  margin: 3em;
+  margin: 120px auto;
   border-radius: 8px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
@@ -77,9 +78,9 @@
 }
 
 .formLabel {
-  font: 500 20px var(--defaultText);
+  font: 500 20px $defaultText;
   line-height: 25px;
-  color: #000;
+  color: $defaultColor;
   margin: 5px 0;
   padding: 8px;
 }
@@ -87,8 +88,8 @@
 .formInput {
   background-color: transparent;
   border: 1px solid lightgray;
-  color: black;
-  font: 500 20px var(--defaultText);
+  color: $defaultColor;
+  font: 500 20px $defaultText;
   padding: 10px;
   margin: 5px 0;
   border-radius: 5px !important;
@@ -114,6 +115,8 @@
 }
 
 .textAreacontainer {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   margin: 10px;
   grid-column: 1 / -1;
@@ -123,21 +126,13 @@
   background-color: transparent;
   padding: 10px;
   margin: 15px 0;
-  height: 100px;
+  flex: 1;
   width: 100%;
   outline: none;
-  color: black;
+  color: $defaultColor;
   border: 1px solid lightgray;
   border-radius: 12px;
-  -webkit-border-radius: 12px;
-  -moz-border-radius: 12px;
-  -ms-border-radius: 12px;
-  -o-border-radius: 12px;
   transition: box-shadow 0.5s, transform 0.5s;
-  -webkit-transition: box-shadow 0.5s, transform 0.5s;
-  -moz-transition: box-shadow 0.5s, transform 0.5s;
-  -ms-transition: box-shadow 0.5s, transform 0.5s;
-  -o-transition: box-shadow 0.5s, transform 0.5s;
 }
 
 // Record Ack Colours
@@ -175,12 +170,12 @@
   padding: 4px;
   width: 180px;
   display: flex;
-  font: 500 22px var(--defaultText);
+  font: 500 22px $defaultText;
   line-height: 28px;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  color: black;
+  color: $defaultColor;
 }
 
 .formButtonContainer button:hover {
@@ -210,15 +205,15 @@
 }
 
 .helpHeader {
-  font: 600 40px var(--defaultText);
+  font: 600 40px $defaultText;
   margin: 20px 0;
   padding: 10px 0;
   color: black;
 }
 
 .helpText {
-  font: 300 20px var(--defaultText);
-  line-height: var(--defaultLineHeight);
+  font: 300 20px $defaultText;
+  line-height: $default_line_height;
   color: black;
 }
 
@@ -234,17 +229,17 @@
 }
 
 .contactLinksMethod {
-  font: 400 18px var(--defaultText);
-  line-height: var(--defaultLineHeight);
-  color: black;
+  font: 400 18px $defaultText;
+  line-height: $default_line_height;
+  color: $defaultColor;
   margin: 5px;
   width: 20%;
 }
 .contactLinks {
   width: 80%;
-  font: 400 18px var(--defaultText);
-  line-height: var(--defaultLineHeight);
-  color: black;
+  font: 400 18px $defaultText;
+  line-height: $default_line_height;
+  color: $defaultColor;
   margin: 5px;
 }
 // Media Queries
