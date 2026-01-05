@@ -4,9 +4,10 @@ import { useState } from 'react';
 
 interface UserLevel {
   levelOfUser: boolean;
+  onToggleModal: () => void;
 }
 
-export default function Sidebar({ levelOfUser }: UserLevel) {
+export default function Sidebar({ levelOfUser, onToggleModal }: UserLevel) {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
   // Function for menu click
   function MenuClick() {
@@ -46,7 +47,11 @@ export default function Sidebar({ levelOfUser }: UserLevel) {
         <h2 className='levelText'>{levelOfUser ? 'Admin' : 'Non Admin'}</h2>
       </div>
       {levelOfUser && (
-        <AdminAction isAdmin={levelOfUser} showAdminContainer={sidebarOpen} />
+        <AdminAction
+          isAdmin={levelOfUser}
+          showAdminContainer={sidebarOpen}
+          onToggleModal={onToggleModal}
+        />
       )}
     </div>
   );

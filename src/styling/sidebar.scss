@@ -30,6 +30,7 @@
   padding: 0.5rem 1rem;
   margin: 10px 0px;
   flex: 1;
+  width: 100%;
 }
 
 .adminAccessContainer ul {
@@ -48,12 +49,8 @@
 
 .adminAccessContainer li {
   width: 100%;
-  display: flex;
-  position: relative;
-  justify-content: center;
   margin: 5px 0;
   list-style: none;
-  padding: 5px;
   transition: border 0.2s ease, transform 0.2s ease;
   border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -76,6 +73,14 @@
   padding: 0 1rem;
   display: block;
   text-align: center;
+}
+
+.adminAccessContainer li button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
 }
 
 .adminIcon {

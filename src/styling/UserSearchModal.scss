@@ -1,0 +1,58 @@
+@use './default' as *;
+
+.UserSearchModal {
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999;
+}
+
+.UserSearchModalBox {
+  height: 70vh;
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  background-color: lightgray;
+  padding: 10px;
+}
+
+.ModalContent {
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ModalHeader {
+  font: 600 27px $defaultText !important;
+  color: $headerDefaultColor;
+  line-height: $default_line_height;
+  margin: 10px;
+  padding: 10px;
+}
+
+.user-input {
+  font: 400 20px $defaultText !important;
+  color: $headerDefaultColor;
+  line-height: $default_line_height;
+  margin: 10px;
+  padding: 10px;
+  outline: 1px solid black;
+  width: 70%;
+}
+
+.searchUserContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.searchUserButton {
+  width: 30%;
+}
+
+// Button form Modal
+.ModalForm {
+  padding: 15px;
+}
+.modalCloseButton {
+  width: 200px;
+}

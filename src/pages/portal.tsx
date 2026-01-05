@@ -9,18 +9,26 @@ import GenerateCurrentDate from '../components/common/GenerateCurrentDate';
 import PortalHeader from '../features/Portal/PortalHeader';
 import GetPermissions from '../features/Portal/GetPermissions';
 import GetContactRecords from '../features/Portal/GetRecords';
+import UserSearchModal from '../features/Portal/UserSearchModal';
+import { useEffect, useState } from 'react';
 
 export default function Portal() {
+  const [showModal, setShowModal] = useState(false);
+
   const loggedIn = localStorage.getItem('logged_in_name');
   if (!loggedIn) return <Navigate to='/' replace />;
   const isAdmin = GetPermissions();
+
   return (
     <>
       <main>
         <div className='mainPortalContainer'>
           {/* Side Bar */}
-          <SideBar levelOfUser={!!isAdmin?.admin} />
-          <div className='loggedInMainContainer'>
+          <SideBar
+            levelOfUser={!!isAdmin?.admin}
+            onToggleModal={() => setShowModal((prev) => !prev)}
+          />
+          <div className='loggedInMainContainer' id='loggedInMainContainer'>
             {/* Main Header Section  */}
             <PortalHeader isAdmin={isAdmin}>
               <GenerateCurrentDate />
@@ -36,6 +44,7 @@ export default function Portal() {
             >
               <GetContactRecords />
             </DashboardCollapse>
+            {showModal && <UserSearchModal showModal={showModal} />}
           </div>
         </div>
       </main>

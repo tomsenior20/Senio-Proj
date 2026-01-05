@@ -2,25 +2,24 @@ import { useEffect, useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { FaCog } from 'react-icons/fa';
 import '../../styling/sidebar.scss';
+import UserSearchModal from './UserSearchModal';
 
 interface AdminActionProp {
   isAdmin: boolean;
   showAdminContainer: boolean;
-}
-
-function UserSearch_Click() {
-  alert('Users search');
-}
-
-function AccessManagement_Click() {
-  alert('Access Management Clicked');
+  onToggleModal: () => void;
 }
 
 export default function AdminAction({
   isAdmin,
   showAdminContainer,
+  onToggleModal,
 }: AdminActionProp) {
   const [AdminMenu, setAdminMenu] = useState<boolean>();
+
+  function AccessManagement_Click() {
+    alert('Access Management Clicked');
+  }
 
   useEffect(() => {
     setAdminMenu(isAdmin);
@@ -35,10 +34,10 @@ export default function AdminAction({
           }`}
         >
           <ul>
-            <li>
+            <li className=''>
               <button
                 className='btn btn-active btn-primary w-full'
-                onClick={UserSearch_Click}
+                onClick={onToggleModal}
               >
                 <FaSearch className='adminIcon' />
                 <span className='buttonText'>User Search</span>
@@ -56,7 +55,6 @@ export default function AdminAction({
           </ul>
         </div>
       )}
-      ;
     </>
   );
 }
