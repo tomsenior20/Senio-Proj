@@ -123,11 +123,16 @@
 }
 
 .modalSubText {
-  font: 400 20px $defaultText;
+  font: 400 18px $defaultText;
   line-height: $default_line_height;
   color: $defaultColor;
   margin: 10px;
-  padding: 10px;
+}
+.noResultfoundText {
+  font: 500 18px $defaultText;
+  line-height: $default_line_height;
+  color: $defaultColor;
+  margin: 10px;
 }
 
 .resultTable {

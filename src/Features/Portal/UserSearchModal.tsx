@@ -2,15 +2,18 @@ import APIGet from '../../api/GetAPI';
 import '../../styling/UserSearchModal.scss';
 import { useState } from 'react';
 import SearchResultsModal from './SearchResults';
+import ErrorAlert from '../../components/common/error';
 
 export default function UserSearchModal({ showModal }: { showModal: boolean }) {
   const [searchValue, setSearchValue] = useState<string>('');
   const [showSearchResults, setSearchResults] = useState<boolean>(false);
   const [results, setResults] = useState<any[]>([]);
+  const [showError, setShowErrorModal] = useState<boolean>(false);
 
   function SearchUser() {
+    setShowErrorModal(false);
     if (!searchValue) {
-      alert('Invalid Search Value');
+      setShowErrorModal(true);
     }
     SearchResults(searchValue);
   }
@@ -34,6 +37,9 @@ export default function UserSearchModal({ showModal }: { showModal: boolean }) {
     <dialog open={showModal} className='modal UserSearchModal'>
       <div className='modal-box UserSearchModalBox'>
         <div className='ModalContent'>
+          {showError && (
+            <ErrorAlert show={showError} message='Invalid Search Result' />
+          )}
           <h1 className='ModalHeader'>User Search:</h1>
           <h3 className='modalSubText'>Use below to see if a user exists</h3>
           <div className='searchUserContainer'>

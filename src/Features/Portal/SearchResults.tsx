@@ -6,9 +6,9 @@ export default function SearchResultsModal({ results }: SearchResultsProps) {
   return (
     <table className='table resultTable'>
       {!Array.isArray(results) || results.length === 0 ? (
-        <thead>
+        <thead className=''>
           <tr>
-            <th className='columnHeaderText'>No Results Found</th>
+            <td className='noResultfoundText m-2!'>No Results Found</td>
           </tr>
         </thead>
       ) : (
