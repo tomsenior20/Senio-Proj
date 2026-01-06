@@ -16,6 +16,8 @@
 }
 
 .ModalContent {
+  display: flex;
+  flex-direction: column;
   flex: 1;
   width: 100%;
   box-sizing: border-box;
@@ -33,13 +35,13 @@
   font: 400 20px $defaultText !important;
   color: $headerDefaultColor;
   line-height: $default_line_height;
-  margin: 10px;
   padding: 10px;
   outline: 1px solid black;
-  width: 70%;
+  width: 60%;
 }
 
 .searchUserContainer {
+  justify-content: center;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -47,12 +49,15 @@
 
 .searchUserButton {
   width: 30%;
+  margin: 10px;
 }
 
 // Button form Modal
 .ModalForm {
+  display: flex;
+  justify-content: end;
   padding: 15px;
 }
 .modalCloseButton {
-  width: 200px;
+  width: 150px;
 }

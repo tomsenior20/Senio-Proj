@@ -20,6 +20,9 @@
   -ms-border-radius: 9px;
   -o-border-radius: 9px;
 }
+.searchresultContainer {
+  flex: 1;
+}
 .dashstatsContainer {
   width: 100%;
   padding: 1rem;
@@ -107,6 +110,29 @@
   display: flex;
 }
 
+.columnHeaderText {
+  font: 600 18px $defaultText;
+  line-height: $default_line_height;
+  color: $defaultColor;
+}
+
+.resultText {
+  font: 400 16px $defaultText;
+  line-height: $default_line_height;
+  color: $defaultColor;
+}
+
+.modalSubText {
+  font: 400 20px $defaultText;
+  line-height: $default_line_height;
+  color: $defaultColor;
+  margin: 10px;
+  padding: 10px;
+}
+
+.resultTable {
+  padding: 5px 10px;
+}
 // Media query
 @media screen and (max-width: 750px) {
   .loggedInMainContainer {

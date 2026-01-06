@@ -188,3 +188,16 @@ app.post('/api/registerView', (req, res) => {
     res.status(200).json({ success: true, results });
   });
 });
+
+app.get('/api/getUserSearch', (req, res) => {
+  const { name } = req.query;
+
+  const sql = 'SELECT * From users where name = ?';
+  con.query(sql, [name], (err, results) => {
+    if (err) {
+      console.log('Error With User Search', err);
+      return res.status(500).json({ error: 'User Search Error' });
+    }
+    res.status(200).json({ success: true, results });
+  });
+});
