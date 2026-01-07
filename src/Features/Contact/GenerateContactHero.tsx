@@ -1,10 +1,10 @@
+'use client';
 import { useEffect, useState } from 'react';
 import APIGet from '../../api/GetAPI';
 
 interface ContactLinksProps {
-  parameter: string;
-  value: string;
   name: string;
+  value: string;
 }
 export default function GenerateContactHero() {
   const [contactLinks, setContactLinks] = useState<ContactLinksProps[]>([]);
@@ -22,6 +22,9 @@ export default function GenerateContactHero() {
         parameter: 'name',
         value: 'Contact',
       });
+
+      console.log('APIGet returned:', data);
+      console.log('Is array?', Array.isArray(data));
 
       setContactLinks(data);
     }
@@ -41,13 +44,13 @@ export default function GenerateContactHero() {
         </p>
       </div>
       <div className='contactLinkContainer'>
-        <table className='table w-full p-2!'>
+        <table className='table w-full tablecontainer p-2'>
           <tbody>
             {contactLinks.map((contactLink) => (
               <tr className='contactLinksList' key={contactLink.name}>
                 <td className='flex w-full'>
                   <p className='contactLinksMethod' aria-label='contactLink'>
-                    {replaceContactAlias(contactLink.name)} -
+                    {replaceContactAlias(contactLink.name)}
                   </p>
                   <p className='contactLinks' aria-label='contact value'>
                     {contactLink.value}

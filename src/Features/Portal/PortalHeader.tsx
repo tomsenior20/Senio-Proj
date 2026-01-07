@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useEffect } from 'react';
 
 interface PortalHeaderProps {
   isAdmin: any;
@@ -6,6 +6,10 @@ interface PortalHeaderProps {
 }
 
 export default function PortalHeader({ isAdmin, children }: PortalHeaderProps) {
+  useEffect(() => {
+    console.log(isAdmin);
+    // localStorage.setItem("userloggedIn", isAdmin?.userloggedin);
+  }, []);
   return (
     <div className='loggedinLeftContainer'>
       {children}

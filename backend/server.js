@@ -56,17 +56,17 @@ app.get('/api/getAppSettings', (req, res) => {
   });
 });
 
-app.get('/api/getContactDetails', (req, res) => {
-  const Contact = req.query.name;
-  const sql = 'SELECT * FROM app_settings where name like ?';
-  con.query(sql, [`${Contact}%`], (err, results) => {
-    if (err) {
-      console.error('Query error:', err);
-      return res.status(500).json({ error: 'Database error' });
-    }
-    res.json(results);
+  app.get('/api/getContactDetails', (req, res) => {
+    const Contact = req.query.name;
+    const sql = 'SELECT * FROM app_settings where name like ?';
+    con.query(sql, [`${Contact}%`], (err, results) => {
+      if (err) {
+        console.error('Query error:', err);
+        return res.status(500).json({ error: 'Database error' });
+      }
+      res.json(results);
+    });
   });
-});
 
 app.post('/api/saveQuery', (req, res) => {
   const { name, number, email, product, message, time_logged } = req.body;
@@ -99,10 +99,10 @@ app.get('/api/getContactRecords', (req, res) => {
 });
 
 app.post('/api/acknowledgeDocument', (req, res) => {
-  const { recordName, recordEmail } = req.body;
+  const { name, email, acknowledgedby } = req.body;
   const sql =
-    'update ticketAcknowldgeTable set acknowledged = 1 where name = ? and email = ?';
-  con.query(sql, [recordName, recordEmail], (err, results) => {
+    'update ticketAcknowldgeTable set acknowledged = 1, acknowledged_by = ? where name = ? and email = ?';
+  con.query(sql, [acknowledgedby, name, email], (err, results) => {
     if (err) {
       console.error('Query error:', err);
       return res.status(500).json({ error: 'Database error' });
@@ -194,6 +194,18 @@ app.get('/api/getUserSearch', (req, res) => {
 
   const sql = 'SELECT * From users where name = ?';
   con.query(sql, [name], (err, results) => {
+    if (err) {
+      console.log('Error With User Search', err);
+      return res.status(500).json({ error: 'User Search Error' });
+    }
+    res.status(200).json({ success: true, results });
+  });
+});
+
+app.get('/api/getAuditLog', (req, res) => {
+  const sql =
+    'SELECT id, name,email,acknowledged_by From ticketAcknowldgeTable where acknowledged = 1';
+  con.query(sql, [], (err, results) => {
     if (err) {
       console.log('Error With User Search', err);
       return res.status(500).json({ error: 'User Search Error' });

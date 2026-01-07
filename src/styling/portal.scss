@@ -138,6 +138,23 @@
 .resultTable {
   padding: 5px 10px;
 }
+
+.auditColumnHeader {
+  font: 600 18px $defaultText;
+  line-height: $default_line_height;
+  color: $defaultColor;
+  margin: 10px;
+  padding: 5px;
+}
+
+.auditRecordText {
+  font: 400 16px $defaultText;
+  line-height: $default_line_height;
+  color: $defaultColor;
+  margin: 10px;
+  padding: 5px;
+}
+
 // Media query
 @media screen and (max-width: 750px) {
   .loggedInMainContainer {

@@ -58,25 +58,34 @@ header {
 }
 
 .offeringContainer {
-  @include flex-row;
-  width: 60%;
+  display: flex;
+  flex-direction: row;
+  width: 50%;
   padding: 1.5em;
-  border-radius: 8px;
   margin: 30px auto;
   min-height: 400px;
   background-color: rgba(255, 255, 255, 0.9);
   box-shadow: 1px 3px 8px rgba(131, 131, 131, 0.6);
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
-  -o-border-radius: 8px;
+  animation: scrollview-fade linear;
+  animation-timeline: scroll();
+}
+
+@keyframes scrollview-fade {
+  from {
+    scale: 0.8;
+    opacity: 0;
+  }
+  to {
+    scale: 1;
+    opacity: 1;
+  }
 }
 
 .offeringTextContainer {
   width: 55%;
   @include flex-column;
   justify-content: center;
-  padding: 2.5em;
+  padding: 1rem;
 }
 
 .offeringImageContainer {
@@ -96,19 +105,19 @@ header {
 .offeringHeader {
   font: 600 23px $defaultText;
   line-height: 1.5;
-  margin: 0.5em 1em;
+  margin: 0.5em;
   color: $defaultColor;
 }
 
 .offeringSubHeader {
   font: 500 18px $defaultText;
   line-height: 1.5;
-  margin: 0.5em 1em;
+  margin: 0.5em;
   color: $defaultColor;
 }
 
 .discoverMoreButton {
-  margin: 0.5em 1em;
+  margin: 0.5em;
   width: 200px;
   height: 40px;
 }
@@ -133,7 +142,7 @@ header {
   header {
     padding: 15px;
     margin-bottom: 10px;
-    min-height: 400px;
+    height: 100vh;
   }
 
   .subHeaderTitle {
@@ -164,9 +173,8 @@ header {
   .offeringTextContainer,
   .offeringImageContainer {
     width: 100%;
-    padding: 1em;
+    padding: 0.5em 1em;
     margin-top: 15px;
-    margin-bottom: 15px;
   }
 
   .offeringHeader {
@@ -183,6 +191,10 @@ header {
 
   .discoverMoreButton {
     margin: 30px auto;
+  }
+  .offeringImage {
+    width: 70%;
+    height: 70%;
   }
 }
 

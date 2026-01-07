@@ -11,10 +11,10 @@ import GetPermissions from '../features/Portal/GetPermissions';
 import GetContactRecords from '../features/Portal/GetRecords';
 import UserSearchModal from '../features/Portal/UserSearchModal';
 import { useEffect, useState } from 'react';
+import AuditLogRecord from '../features/Portal/AuditLogRecord';
 
 export default function Portal() {
   const [showModal, setShowModal] = useState(false);
-
   const loggedIn = localStorage.getItem('logged_in_name');
   if (!loggedIn) return <Navigate to='/' replace />;
   const isAdmin = GetPermissions();
@@ -44,6 +44,12 @@ export default function Portal() {
             >
               <GetContactRecords />
             </DashboardCollapse>
+            {/* Audit Stats */}
+            {isAdmin?.admin && (
+              <DashboardCollapse title='Audit Logs' idProp='auditLog'>
+                <AuditLogRecord />
+              </DashboardCollapse>
+            )}
             {showModal && <UserSearchModal showModal={showModal} />}
           </div>
         </div>

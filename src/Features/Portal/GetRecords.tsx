@@ -24,6 +24,7 @@ export default function GetContactRecords() {
         body: {
           name: record.name,
           email: record.email,
+          acknowledgedby: localStorage.getItem('logged_in_name'),
         },
       });
 
@@ -123,7 +124,7 @@ export default function GetContactRecords() {
                   <td className='text-neutral text-md border border-black p-3!'>
                     {item.acknowledged === 0 ? (
                       <button
-                        className='btn btn-primary w-full p-2!'
+                        className='btn btn-success w-full p-2!'
                         type='submit'
                         onClick={() => {
                           actionTicket(item);
