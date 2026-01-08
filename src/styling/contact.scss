@@ -12,8 +12,6 @@
   line-height: 88px;
   color: $headerDefaultColor;
   letter-spacing: 0.013em;
-  animation: fadein 2s ease-in-out;
-  -webkit-animation: fadein 2s ease-in-out;
 }
 
 .contactSubHeader {
@@ -44,8 +42,8 @@
 
 .contactFormContainer {
   @include flex-column;
-  width: 50%;
-  height: 100%;
+  width: 40%;
+  height: 90%;
   padding: 1em;
   margin: 2em;
   background: rgba(226, 225, 225, 0.45);
@@ -55,8 +53,8 @@
   -moz-border-radius: 12px !important;
   -ms-border-radius: 12px !important;
   -o-border-radius: 12px !important;
-  animation: fadein 2s ease-in-out;
-  -webkit-animation: fadein 2s ease-in-out;
+  animation: fadein linear;
+  animation-timeline: scroll();
 }
 
 .inputContainer {
@@ -189,18 +187,27 @@
 }
 
 .helpContainer {
-  width: 50%;
+  width: 40%;
   background: rgba(226, 225, 225, 0.45);
-  height: 100%;
+  height: 90%;
   display: flex;
   flex-direction: column;
-  animation: fadein 2s ease-in-out;
-  -webkit-animation: fadein 2s ease-in-out;
+  animation: fadein linear;
+  animation-timeline: scroll();
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 12px !important;
+  -webkit-border-radius: 12px !important;
+  -moz-border-radius: 12px !important;
+  -ms-border-radius: 12px !important;
+  -o-border-radius: 12px !important;
 }
 
 .helpContentContainer {
   flex: 1;
   padding: 30px;
+  animation: fadein linear;
+  animation-timeline: scroll();
+  -webkit-animation: fadein linear;
 }
 
 .helpHeader {
@@ -219,6 +226,9 @@
 .contactLinkContainer {
   padding: 20px;
   height: 300px;
+  animation: fadein linear;
+  animation-timeline: scroll();
+  -webkit-animation: fadein linear;
 }
 .contactLinksList {
   margin: 20px 0;
@@ -292,12 +302,12 @@
     flex-direction: column;
   }
   .helpContainer {
-    width: 100%;
+    width: 90%;
   }
   .contactFormContainer {
     margin: 30px 10px;
     padding: 5px;
-    width: 100%;
+    width: 90%;
   }
   .helpContentContainer,
   .contactLinkContainer {
@@ -311,15 +321,5 @@
   }
   .tablecontainer {
     padding: 0 !important;
-  }
-}
-
-@keyframes fadein {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
   }
 }
