@@ -1,21 +1,25 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { FaCog } from 'react-icons/fa';
 import '../../styling/sidebar.scss';
 import UserSearchModal from './UserSearchModal';
+import gsap from 'gsap';
 
 interface AdminActionProp {
   isAdmin: boolean;
   showAdminContainer: boolean;
+  sidebaropen: boolean;
   onToggleModal: () => void;
 }
 
 export default function AdminAction({
   isAdmin,
   showAdminContainer,
+  sidebaropen,
   onToggleModal,
 }: AdminActionProp) {
   const [AdminMenu, setAdminMenu] = useState<boolean>();
+  const sidebarSubRef = useRef<HTMLDivElement>(null);
 
   function AccessManagement_Click() {
     alert('Access Management Clicked');
@@ -23,7 +27,16 @@ export default function AdminAction({
 
   useEffect(() => {
     setAdminMenu(isAdmin);
-  }, []);
+
+    gsap.from(sidebarSubRef.current, {
+      opacity: 0,
+    });
+    gsap.to(sidebarSubRef.current, {
+      opacity: 1,
+      duration: 1,
+      ease: 'power3.inOut',
+    });
+  }, [sidebaropen]);
 
   return (
     <>
@@ -32,6 +45,7 @@ export default function AdminAction({
           className={`adminAccessContainer ${
             showAdminContainer ? '' : 'closed'
           }`}
+          ref={sidebarSubRef}
         >
           <ul>
             <li className=''>

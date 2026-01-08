@@ -84,7 +84,7 @@
 
 .formInput {
   background-color: transparent;
-  border: 1px solid lightgray;
+  border: 1px solid black;
   color: $defaultColor;
   font: 500 20px $defaultText;
   padding: 10px;
@@ -127,7 +127,7 @@
   width: 100%;
   outline: none;
   color: $defaultColor;
-  border: 1px solid lightgray;
+  border: 1px solid black;
   border-radius: 12px;
   transition: box-shadow 0.5s, transform 0.5s;
 }

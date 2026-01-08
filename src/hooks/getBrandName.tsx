@@ -29,7 +29,7 @@ export default function GetBrandName() {
     gsap.to(container.current, {
       opacity: 1,
       y: 0,
-      duration: 2,
+      duration: 1,
       ease: 'power3.inOut',
     });
   }, []);

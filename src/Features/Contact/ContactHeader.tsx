@@ -22,8 +22,8 @@ export default function ContactHeader() {
 
   return (
     <header className='contactHeaderContainer'>
-      <div ref={containerRef}>
-        <h1 className='contactHeader'>{PageHeaderText}</h1>
+      <div ref={containerRef} className='d-flex'>
+        <h1 className='contactHeader text-center'>{PageHeaderText}</h1>
         <h3 className='contactSubHeader'>{PageSubText}</h3>
       </div>
     </header>
