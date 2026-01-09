@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import APIGet from '../../api/GetAPI';
 import GetAPI from '../../api/api';
+import { HiCheck } from 'react-icons/hi';
 
 interface ContactRecordProps {
   email: string;
@@ -131,6 +132,7 @@ export default function GetContactRecords() {
                         }}
                       >
                         Action
+                        <HiCheck />
                       </button>
                     ) : (
                       <> No Action Required</>

@@ -2,8 +2,8 @@ import { useEffect, useState, useRef } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { FaCog } from 'react-icons/fa';
 import '../../styling/sidebar.scss';
-import UserSearchModal from './UserSearchModal';
 import gsap from 'gsap';
+import { HiCog, HiOutlineSearch } from 'react-icons/hi';
 
 interface AdminActionProp {
   isAdmin: boolean;
@@ -55,6 +55,7 @@ export default function AdminAction({
               >
                 <FaSearch className='adminIcon' />
                 <span className='buttonText'>User Search</span>
+                <HiOutlineSearch />
               </button>
             </li>
             <li>
@@ -64,6 +65,7 @@ export default function AdminAction({
               >
                 <FaCog className='adminIcon' />
                 <span className='buttonText'>Access Management</span>
+                <HiCog />
               </button>
             </li>
           </ul>
