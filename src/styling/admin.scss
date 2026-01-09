@@ -106,7 +106,7 @@
   cursor: pointer;
   width: 100%;
   padding: 12px 24px;
-  color: black;
+  color: $defaultColor;
   margin: 15px 0;
   font: 500 18px $defaultText;
   line-height: 24px;
@@ -120,7 +120,7 @@
 
 .signInButton:hover,
 .signInButton:active {
-  color: black;
+  color: $defaultColor;
 }
 
 .forgotPassword {

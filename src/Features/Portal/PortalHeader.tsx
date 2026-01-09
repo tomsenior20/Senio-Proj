@@ -1,17 +1,26 @@
-import { ReactNode, useEffect } from 'react';
-
+import { ReactNode, useEffect, useRef } from 'react';
+import gsap from 'gsap';
 interface PortalHeaderProps {
   isAdmin: any;
   children: ReactNode;
 }
 
 export default function PortalHeader({ isAdmin, children }: PortalHeaderProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    console.log(isAdmin);
-    // localStorage.setItem("userloggedIn", isAdmin?.userloggedin);
+    if (!containerRef.current) return;
+
+    gsap.from(containerRef.current, { opacity: 0, y: 20 });
+    gsap.to(containerRef.current, {
+      opacity: 1,
+      y: 0,
+      duration: 1.5,
+      ease: 'power3.inOut',
+    });
   }, []);
   return (
-    <div className='loggedinLeftContainer'>
+    <div className='loggedinLeftContainer' ref={containerRef}>
       {children}
       <div className='userLoggedinContainer'>
         <h1 className='loggedinUserText'>

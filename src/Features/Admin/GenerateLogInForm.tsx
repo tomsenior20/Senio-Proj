@@ -1,5 +1,6 @@
+import { useEffect, useRef } from 'react';
 import FormInput from '../../components/form/formcomp';
-
+import gsap from 'gsap';
 export default function GenerateLogInForm({
   email,
   setEmail,
@@ -9,9 +10,22 @@ export default function GenerateLogInForm({
   setShowPassword,
   handleLogIn,
 }: any) {
+  const containerRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    gsap.from(containerRef.current, { opacity: 0 });
+    gsap.to(containerRef.current, {
+      opacity: 1,
+      duration: 1.2,
+      ease: 'power3.inOut',
+    });
+  }, []);
+
   return (
     <div className='loginContainer'>
-      <form className='loginForm'>
+      <form className='loginForm' ref={containerRef}>
         <div className='mainFormContainer'>
           <FormInput
             type='Email'

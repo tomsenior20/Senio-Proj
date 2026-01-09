@@ -42,7 +42,7 @@ export default function AuditLogRecord() {
       </thead>
       <tbody>
         {auditRecords.map((item: any, index: number) => (
-          <tr>
+          <tr key={index}>
             <td className='border border-black bg-gray-100 auditRecordText'>
               {item.id}
             </td>
