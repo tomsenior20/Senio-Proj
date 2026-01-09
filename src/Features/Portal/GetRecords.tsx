@@ -78,7 +78,7 @@ export default function GetContactRecords() {
             {ColumnNames.map((header) => (
               <th
                 key={header}
-                className='text-neutral text-lg border border-black p-2!'
+                className='text-neutral text-lg border border-black p-2! contactColText'
               >
                 {header}
               </th>
@@ -99,25 +99,25 @@ export default function GetContactRecords() {
               )
               .map((item) => (
                 <tr key={`${item.name}-${item.message}`}>
-                  <td className='text-neutral text-md  border border-black p-1!'>
+                  <td className='text-neutral text-md  border border-black p-1! recordText'>
                     {item.name}
                   </td>
-                  <td className='text-neutral text-md border border-black p-1!'>
+                  <td className='text-neutral text-md border border-black p-1! recordText'>
                     {item.message}
                   </td>
-                  <td className='text-neutral text-md border border-black p-1!'>
+                  <td className='text-neutral text-md border border-black p-1! recordText'>
                     {item.email}
                   </td>
-                  <td className='text-neutral text-md border border-black p-1!'>
+                  <td className='text-neutral text-md border border-black p-1! recordText'>
                     {item.product}
                   </td>
-                  <td className='text-neutral text-md border border-black p-1!'>
+                  <td className='text-neutral text-md border border-black p-1! recordText'>
                     {item.number}
                   </td>
-                  <td className='text-neutral text-md border border-black p-1!'>
+                  <td className='text-neutral text-md border border-black p-1! recordText'>
                     {new Date(item.date_logged).toLocaleString('en-gb')}
                   </td>
-                  <td className='text-neutral text-md border border-black p-1!'>
+                  <td className='text-neutral text-md border border-black p-1! recordText'>
                     <span
                       className={item.acknowledged === 0 ? 'notAck' : 'ack'}
                     ></span>
@@ -125,14 +125,14 @@ export default function GetContactRecords() {
                   <td className='text-neutral text-md border border-black p-3!'>
                     {item.acknowledged === 0 ? (
                       <button
-                        className='btn btn-success w-full p-2!'
+                        className='btn btn-success w-full'
                         type='submit'
                         onClick={() => {
                           actionTicket(item);
                         }}
                       >
-                        Action
-                        <HiCheck />
+                        <span className='actionButton'>Action</span>
+                        <HiCheck size={20} className='checkIcon' />
                       </button>
                     ) : (
                       <> No Action Required</>

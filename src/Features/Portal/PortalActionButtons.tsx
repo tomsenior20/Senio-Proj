@@ -48,14 +48,13 @@ export default function AdminAction({
           ref={sidebarSubRef}
         >
           <ul>
-            <li className=''>
+            <li>
               <button
                 className='btn btn-active btn-primary w-full'
                 onClick={onToggleModal}
               >
-                <FaSearch className='adminIcon' />
                 <span className='buttonText'>User Search</span>
-                <HiOutlineSearch />
+                <HiOutlineSearch size={20} className='searchIcon' />
               </button>
             </li>
             <li>
@@ -63,9 +62,8 @@ export default function AdminAction({
                 className='btn btn-active btn-primary w-full'
                 onClick={AccessManagement_Click}
               >
-                <FaCog className='adminIcon' />
                 <span className='buttonText'>Access Management</span>
-                <HiCog />
+                <HiCog size={20} className='accessIcon' />
               </button>
             </li>
           </ul>

@@ -23,41 +23,43 @@ export default function AuditLogRecord() {
     GetAuditLog();
   }, []);
   return (
-    <table className='table'>
-      <thead>
-        <tr>
-          <th className='border border-black bg-gray-300 auditColumnHeader'>
-            id
-          </th>
-          <th className='border border-black bg-gray-300 auditColumnHeader'>
-            Name
-          </th>
-          <th className='border border-black bg-gray-300 auditColumnHeader'>
-            Email
-          </th>
-          <th className='border border-black bg-gray-300 auditColumnHeader'>
-            Acknowledged By
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        {auditRecords.map((item: any, index: number) => (
-          <tr key={index}>
-            <td className='border border-black bg-gray-100 auditRecordText'>
-              {item.id}
-            </td>
-            <td className='border border-black bg-gray-100 auditRecordText'>
-              {item.name}
-            </td>
-            <td className='border border-black bg-gray-100 auditRecordText'>
-              {item.email}
-            </td>
-            <td className='border border-black bg-gray-100 auditRecordText'>
-              {item.acknowledged_by}
-            </td>
+    <div className='overflow-x-auto text-black w-full'>
+      <table className='table'>
+        <thead>
+          <tr>
+            <th className='border border-black bg-gray-300 auditColumnHeader'>
+              id
+            </th>
+            <th className='border border-black bg-gray-300 auditColumnHeader'>
+              Name
+            </th>
+            <th className='border border-black bg-gray-300 auditColumnHeader'>
+              Email
+            </th>
+            <th className='border border-black bg-gray-300 auditColumnHeader'>
+              Acknowledged By
+            </th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {auditRecords.map((item: any, index: number) => (
+            <tr key={index}>
+              <td className='border border-black bg-gray-100 auditRecordText'>
+                {item.id}
+              </td>
+              <td className='border border-black bg-gray-100 auditRecordText'>
+                {item.name}
+              </td>
+              <td className='border border-black bg-gray-100 auditRecordText'>
+                {item.email}
+              </td>
+              <td className='border border-black bg-gray-100 auditRecordText'>
+                {item.acknowledged_by}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }

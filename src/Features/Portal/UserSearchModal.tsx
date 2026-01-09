@@ -1,8 +1,9 @@
 import APIGet from '../../api/GetAPI';
 import '../../styling/UserSearchModal.scss';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import SearchResultsModal from './SearchResults';
 import ErrorAlert from '../../components/common/error';
+import gsap from 'gsap';
 
 export default function UserSearchModal({ showModal }: { showModal: boolean }) {
   const [searchValue, setSearchValue] = useState<string>('');

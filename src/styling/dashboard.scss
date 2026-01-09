@@ -42,25 +42,25 @@
 }
 
 .statName {
-  font: 600 1.5rem 'Poppins', sans-serif;
+  font: 600 22px 'Poppins', sans-serif;
   line-height: 2;
-  margin: 10px 0;
+  margin: 5px 0;
   color: $defaultColor;
   text-align: center;
 }
 
 .statDesc {
-  font: 400 1rem 'Poppins', sans-serif;
+  font: 300 16px 'Poppins', sans-serif;
   line-height: 1.5;
   color: $defaultColor;
   text-align: center;
-  margin: 10px 0;
+  margin: 5px 0;
 }
 
 .dashboardVal {
-  font: 600 1.4rem 'Poppins', sans-serif;
+  font: 600 20px 'Poppins', sans-serif;
   line-height: 1.5;
-  margin: 10px 0;
+  margin: 5px;
   padding: 5px;
   color: $defaultColor;
   text-align: center;
@@ -70,12 +70,14 @@
 }
 
 .recordDateContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   margin: 3px;
   padding: 3px;
 }
 
 .recordDateText {
-  font: 500 0.9rem 'Poppins', sans-serif;
+  font: 300 16px 'Poppins', sans-serif;
   line-height: 1.2rem;
   color: $defaultColor;
 }

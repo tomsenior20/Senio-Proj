@@ -1,6 +1,7 @@
-import { Children, ReactNode, useEffect, useState } from 'react';
+import { Children, ReactNode, useEffect, useRef, useState } from 'react';
 import '../../styling/dashboard.scss';
 import APIGet from '../../api/GetAPI';
+import gsap from 'gsap';
 
 interface DashboardValue {
   dashboardName: string;
@@ -19,8 +20,19 @@ interface StatCardProps {
 }
 
 function CreateStatCard({ dashboardObject, children }: StatCardProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    gsap.from(containerRef.current, { opacity: 0 });
+    gsap.to(containerRef.current, {
+      opacity: 1,
+      duration: 1,
+      ease: 'power3.inOut',
+    });
+  }, []);
   return (
-    <div className='dashboardStatContainer'>
+    <div className='dashboardStatContainer' ref={containerRef}>
       <h3 className='statName'>{dashboardObject[0].statName}</h3>
       <p className='statDesc'>{dashboardObject[0].description}</p>
       <p className='dashboardVal'>{dashboardObject.length}</p>
@@ -46,18 +58,22 @@ function GenerateStats({ orderedDates }: { orderedDates: DashboardRow[] }) {
   });
   return (
     <>
-      {unqiqueDate.map((item) => {
-        const day = new Date(item.ticket_created).toISOString().split('T')[0];
+      <div className='recordDateContainer'>
+        {unqiqueDate.map((item) => {
+          const day = new Date(item.ticket_created).toISOString().split('T')[0];
 
-        return (
-          <div className='recordDateContainer' key={item.id}>
+          return (
             <p className='recordDateText' key={item.id}>
-              {new Date(item.ticket_created).toLocaleDateString()} -{' '}
-              {countMap[day]}
+              {new Date(item.ticket_created).toLocaleDateString('en-GB', {
+                day: '2-digit',
+                month: 'short',
+                year: '2-digit',
+              })}
+              - {countMap[day]}
             </p>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </>
   );
 }

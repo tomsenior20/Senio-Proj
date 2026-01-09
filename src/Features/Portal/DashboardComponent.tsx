@@ -17,7 +17,10 @@ export default function DashboardCollapse({
     <div className='dashstatsContainer flex flex-col'>
       <details className='collapse border w-full dashboardCollapse' open={open}>
         <summary className='collapse-title font-semibold m-2!'>{title}</summary>
-        <div className='collapse-content text-sm' id={idProp}>
+        <div
+          className='collapse-content text-sm auditTableContainer'
+          id={idProp}
+        >
           {children}
         </div>
       </details>
