@@ -8,6 +8,20 @@ interface MobileListProps {
   currentPath: string;
 }
 
+interface CreateMobileButtonProps {
+  calledFunction: () => void;
+}
+
+function CreateMobileButton({ calledFunction }: CreateMobileButtonProps) {
+  return (
+    <button onClick={calledFunction} className='mobileMenuButton'>
+      <span className='mobileBar'></span>
+      <span className='mobileBar'></span>
+      <span className='mobileBar'></span>
+    </button>
+  );
+}
+
 export default function Navigation() {
   const [isMobileScreen, setIsMobileScreen] = useState<boolean>(false);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -60,11 +74,7 @@ export default function Navigation() {
     return (
       <div className='MobileMenuListContainer'>
         {isMobileScreen ? (
-          <button onClick={mobileMenuClick} className='mobileMenuButton'>
-            <span className='mobileBar'></span>
-            <span className='mobileBar'></span>
-            <span className='mobileBar'></span>
-          </button>
+          <CreateMobileButton calledFunction={mobileMenuClick} />
         ) : (
           <ListItems isMobile={false} currentPath={location.pathname} />
         )}

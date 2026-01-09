@@ -2,9 +2,29 @@ import APIGet from '../../api/GetAPI';
 import { useState, useEffect } from 'react';
 
 interface AuditProps {
+  id: number;
   name: string;
   email: string;
   acknowledged_by: string;
+}
+
+function AuditRow({ record }: { record: AuditProps }) {
+  return (
+    <tr>
+      <td className='border border-black bg-gray-100 auditRecordText'>
+        {record.id}
+      </td>
+      <td className='border border-black bg-gray-100 auditRecordText'>
+        {record.name}
+      </td>
+      <td className='border border-black bg-gray-100 auditRecordText'>
+        {record.email}
+      </td>
+      <td className='border border-black bg-gray-100 auditRecordText'>
+        {record.acknowledged_by}
+      </td>
+    </tr>
+  );
 }
 
 export default function AuditLogRecord() {
@@ -42,21 +62,8 @@ export default function AuditLogRecord() {
           </tr>
         </thead>
         <tbody>
-          {auditRecords.map((item: any, index: number) => (
-            <tr key={index}>
-              <td className='border border-black bg-gray-100 auditRecordText'>
-                {item.id}
-              </td>
-              <td className='border border-black bg-gray-100 auditRecordText'>
-                {item.name}
-              </td>
-              <td className='border border-black bg-gray-100 auditRecordText'>
-                {item.email}
-              </td>
-              <td className='border border-black bg-gray-100 auditRecordText'>
-                {item.acknowledged_by}
-              </td>
-            </tr>
+          {auditRecords.map((record) => (
+            <AuditRow key={record.id} record={record} />
           ))}
         </tbody>
       </table>
