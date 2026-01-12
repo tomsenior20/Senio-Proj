@@ -13,6 +13,41 @@ interface ContactRecordProps {
   acknowledged: number;
 }
 
+const CONTACT_COLUMNS = [
+  { key: 'name', label: 'Name' },
+  { key: 'message', label: 'Message' },
+  { key: 'email', label: 'Email' },
+  { key: 'product', label: 'Product' },
+  { key: 'number', label: 'Number' },
+  { key: 'date_logged', label: 'Date Logged' },
+  { key: 'acknowledged', label: 'Actioned' },
+  { key: 'action', label: 'Action' },
+] as const;
+
+function ColumnNames() {
+  return (
+    <thead className='bg-gray-200'>
+      <tr>
+        {CONTACT_COLUMNS.map((header) => (
+          <th
+            key={header.key}
+            className='text-neutral text-lg border border-black p-2! contactColText'
+          >
+            {header.label}
+          </th>
+        ))}
+      </tr>
+    </thead>
+  );
+}
+
+function NoRecordsContainer() {
+  return (
+    <tr>
+      <td className='text-center p-4'>No Records</td>
+    </tr>
+  );
+}
 export default function GetContactRecords() {
   function actionTicket(record: ContactRecordProps) {
     if (!record) {
@@ -41,18 +76,6 @@ export default function GetContactRecords() {
     AcknowledgeTicket();
   }
 
-  // Table Colimn Names
-  const ColumnNames = [
-    'Name',
-    'Message',
-    'Email',
-    'Product',
-    'Number',
-    'Date Logged',
-    'Actioned',
-    'Action',
-  ];
-
   const [contactRecords, setContactRecords] = useState<ContactRecordProps[]>(
     []
   );
@@ -73,18 +96,7 @@ export default function GetContactRecords() {
   return (
     <div className='overflow-x-auto text-black w-full'>
       <table className='table-lg w-full border border-black'>
-        <thead className='bg-gray-200'>
-          <tr>
-            {ColumnNames.map((header) => (
-              <th
-                key={header}
-                className='text-neutral text-lg border border-black p-2! contactColText'
-              >
-                {header}
-              </th>
-            ))}
-          </tr>
-        </thead>
+        <ColumnNames />
         <tbody className='bg-gray-100'>
           {contactRecords.length > 0 ? (
             contactRecords
@@ -141,11 +153,7 @@ export default function GetContactRecords() {
                 </tr>
               ))
           ) : (
-            <tr>
-              <td colSpan={ColumnNames.length} className='text-center p-4'>
-                No Records
-              </td>
-            </tr>
+            <NoRecordsContainer />
           )}
         </tbody>
       </table>

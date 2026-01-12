@@ -8,6 +8,29 @@ interface AuditProps {
   acknowledged_by: string;
 }
 
+const AUDIT_COLUMNS = [
+  { key: 'id', label: 'ID' },
+  { key: 'name', label: 'Name' },
+  { key: 'email', label: 'Email' },
+  { key: 'acknowledged_by', label: 'Acknowledged By' },
+] as const;
+
+function AuditColumns() {
+  return (
+    <thead>
+      <tr>
+        {AUDIT_COLUMNS.map((col) => (
+          <th
+            key={col.key}
+            className='border border-black bg-gray-300 auditColumnHeader'
+          >
+            {col.label}
+          </th>
+        ))}
+      </tr>
+    </thead>
+  );
+}
 function AuditRow({ record }: { record: AuditProps }) {
   return (
     <tr>
@@ -45,22 +68,7 @@ export default function AuditLogRecord() {
   return (
     <div className='overflow-x-auto text-black w-full'>
       <table className='table'>
-        <thead>
-          <tr>
-            <th className='border border-black bg-gray-300 auditColumnHeader'>
-              id
-            </th>
-            <th className='border border-black bg-gray-300 auditColumnHeader'>
-              Name
-            </th>
-            <th className='border border-black bg-gray-300 auditColumnHeader'>
-              Email
-            </th>
-            <th className='border border-black bg-gray-300 auditColumnHeader'>
-              Acknowledged By
-            </th>
-          </tr>
-        </thead>
+        <AuditColumns />
         <tbody>
           {auditRecords.map((record) => (
             <AuditRow key={record.id} record={record} />

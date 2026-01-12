@@ -29,16 +29,19 @@ export default function Sidebar({ levelOfUser, onToggleModal }: UserLevel) {
       duration: 1,
       ease: 'power3.inOut',
     });
-    gsap.from(sidebarSubRef.current, {
-      opacity: 0,
-    });
 
-    // Menu Level Text
-    gsap.to(sidebarSubRef.current, {
-      opacity: 1,
-      duration: 1,
-      ease: 'power3.inOut',
-    });
+    gsap.fromTo(
+      sidebarSubRef.current,
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        duration: 1,
+        ease: 'power3.inOut',
+      }
+    );
+
     gsap.from(mobileButtonRef.current, {
       x: sidebarOpen ? -40 : 40,
       duration: 0.6,

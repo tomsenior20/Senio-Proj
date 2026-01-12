@@ -5,6 +5,19 @@ interface PortalHeaderProps {
   children: ReactNode;
 }
 
+function GenerateAdmin({ isAdmin }: { isAdmin: any }) {
+  return (
+    <div className='userLoggedinContainer'>
+      <h1 className='loggedinUserText'>
+        Welcome back: {isAdmin?.userloggedIn}
+      </h1>
+      <h3 className='loggedInSubText'>
+        Always Stay Connected with modern tools, and features
+      </h3>
+    </div>
+  );
+}
+
 export default function PortalHeader({ isAdmin, children }: PortalHeaderProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -22,14 +35,7 @@ export default function PortalHeader({ isAdmin, children }: PortalHeaderProps) {
   return (
     <div className='loggedinLeftContainer' ref={containerRef}>
       {children}
-      <div className='userLoggedinContainer'>
-        <h1 className='loggedinUserText'>
-          Welcome back: {isAdmin?.userloggedIn}
-        </h1>
-        <h3 className='loggedInSubText'>
-          Always Stay Connected with modern tools, and features
-        </h3>
-      </div>
+      <GenerateAdmin isAdmin={isAdmin} />
     </div>
   );
 }

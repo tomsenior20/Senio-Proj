@@ -2,9 +2,45 @@ import { useEffect, useRef, useState } from 'react';
 import APIGet from '../api/GetAPI'; // make sure path is correct
 import gsap from 'gsap';
 
+interface BrandNameProps {
+  brandName: string;
+}
+
+function BrandNameContainer({ brandName }: BrandNameProps) {
+  const container = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Animations using GSAP for the Header Container
+    if (!container.current) return;
+    gsap.fromTo(
+      container.current,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'power3.inOut',
+      }
+    );
+  }, [brandName]);
+  return (
+    <header>
+      <div className='headerContainer' ref={container}>
+        <h1 className='headerTitle'>{brandName}</h1>
+        <p className='subHeaderTitle'>
+          Where the door to centralised innovation occurs, exploring better ways
+          to control your personal development better
+        </p>
+        <button className='btn btn-primary mt-6! px-6! py-3! GetStartedbutton'>
+          Get Started
+        </button>
+      </div>
+    </header>
+  );
+}
+
 export default function GetBrandName() {
   const [brandName, setBrandName] = useState<string>('');
-  const container = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     async function fetchBrandName() {
@@ -20,32 +56,8 @@ export default function GetBrandName() {
         return;
       }
     }
-
     fetchBrandName();
-
-    // Animations using GSAP for the Header Container
-    if (!container.current) return;
-    gsap.set(container.current, { opacity: 0, y: 30 });
-    gsap.to(container.current, {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      ease: 'power3.inOut',
-    });
   }, []);
 
-  return (
-    <header>
-      <div className='headerContainer' ref={container}>
-        <h1 className='headerTitle'>{brandName}</h1>
-        <p className='subHeaderTitle'>
-          Where the door to centralised innovation occurs, exploring better ways
-          to control your personal development better
-        </p>
-        <button className='btn btn-primary mt-6! px-6! py-3! GetStartedbutton'>
-          Get Started
-        </button>
-      </div>
-    </header>
-  );
+  return <BrandNameContainer brandName={brandName} />;
 }

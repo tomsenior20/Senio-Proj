@@ -15,12 +15,15 @@ export default function GenerateLogInForm({
   useEffect(() => {
     if (!containerRef.current) return;
 
-    gsap.from(containerRef.current, { opacity: 0 });
-    gsap.to(containerRef.current, {
-      opacity: 1,
-      duration: 1.2,
-      ease: 'power3.inOut',
-    });
+    gsap.fromTo(
+      containerRef.current,
+      { opacity: 0 },
+      {
+        opacity: 1,
+        duration: 1.2,
+        ease: 'power3.inOut',
+      }
+    );
   }, []);
 
   return (
