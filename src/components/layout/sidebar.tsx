@@ -59,7 +59,7 @@ export default function Sidebar({ levelOfUser, onToggleModal }: UserLevel) {
     >
       <div className={`p-2! m-1! flex justify-end menubuttonContainer`}>
         <button
-          className='btn btn-sm btn-square bg-white border-1 border-black'
+          className='btn btn-sm btn-square bg-white border border-black'
           onClick={MenuClick}
           aria-label='Mobile SideBar Button'
           ref={mobileButtonRef}
